@@ -1,0 +1,2 @@
+# PlatziCelebrity
+Platzi Master Project
