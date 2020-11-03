@@ -1,6 +1,6 @@
 import React from 'react'
 
-import './GuideComponent.css';
+import './GuideComponent.scss';
 
 const GuideComponent = () => {
     return (

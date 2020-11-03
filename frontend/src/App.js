@@ -1,4 +1,4 @@
-import './App.css';
+import './scss/App.scss';
 import GuideComponent from './components/GuideComponent/GuideComponent';
 
 function App() {
