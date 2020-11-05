@@ -4,7 +4,7 @@ const {db} = require('../store/database');
 async function postUser (values){
     try {
     await db.result(`INSERT INTO users (first_name, last_name, email, password_, level_id) 
-    VALUES($1,$2, $3, $4, 1)`,
+    VALUES($1,$2, $3, $4, 2)`,
     [
         values.first_name,
         values.last_name,
