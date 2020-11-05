@@ -37,9 +37,12 @@ def get_links_notices_site(site):
 '''
   This function get the links in SEARCH page
 '''
-def get_links_notices_search(site):
-  _url = site['url_search']
+def get_links_notices_search(site, name_celebrity):
   _queries = site['queries']
+  _url = site['url_search']
+  
+  name_celebrity = name_celebrity.replace(' ', '+')
+  _url = _url.replace('$search-name$', name_celebrity)
 
   try:
     response = requests.get(_url)

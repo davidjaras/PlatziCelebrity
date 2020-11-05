@@ -3,7 +3,7 @@ news_sites:
     name: 'BBC Mundo - Tecnología'
     domain: 'https://www.bbc.com'
     url: 'https://www.bbc.com/mundo/topics/cyx5krnw38vt'
-    url_search: 'https://www.bbc.com/mundo/search?q=ronaldo'
+    url_search: 'https://www.bbc.com/mundo/search?q=$search-name$'
     queries:
       homepage_article_links: 'article header h3 a'
       search_page_article_links: 'div .hard-news-unit h3 a'
@@ -17,7 +17,7 @@ news_sites:
     name: 'BBC Mundo - Deportes'
     domain: 'https://www.bbc.com'
     url: 'https://www.bbc.com/mundo/topics/cr50y726329t'
-    url_search: 'https://www.bbc.com/mundo/search?q=ronaldo'
+    url_search: 'https://www.bbc.com/mundo/search?q=$search-name$'
     queries:
       homepage_article_links: 'article header h3 a'
       search_page_article_links: 'div .hard-news-unit h3 a'
@@ -31,7 +31,7 @@ news_sites:
     name: 'El Tiempo'
     domain: 'https://www.eltiempo.com'
     url: 'https://www.eltiempo.com/noticias/geopolitica'
-    url_search: 'https://www.eltiempo.com/buscar?q=ronaldo'
+    url_search: 'https://www.eltiempo.com/buscar?q=$search-name$'
     queries:
       homepage_article_links: '.col1 h3 a'
       search_page_article_links: 'div .listing h3 a'
@@ -45,7 +45,7 @@ news_sites:
     name: 'El Comercio'
     domain: 'https://elcomercio.pe'
     url: 'https://elcomercio.pe/archivo/mundo/'
-    url_search: 'https://elcomercio.pe/buscar/cristiano+ronaldo/todas/descendiente/?query=cristiano+ronaldo'
+    url_search: 'https://elcomercio.pe/buscar/$search-name$/todas/descendiente/?query=$search-name$'
     queries:
       homepage_article_links: 'div .story-item h2 a'
       search_page_article_links: 'div .story-item h2 a'
