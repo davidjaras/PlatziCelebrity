@@ -13,18 +13,14 @@ async function query(id) {
                 if(a<5){
                     if(a === 1){
                         categories.push('entretainment')
-                        console.log("subio entretainment");
                     }else if(a===2){
                         categories.push('sport');
-                        console.log("subio sport");
                     }else if(a===3){
                         categories.push('geopolitic');
-                        console.log("subio geopolitic");
                     }else if(a===4){
                         categories.push('tech');
-                        console.log("subio tech");
                     }else {
-                        console.log("no se pudo");
+                    
                     }
                 }
             }
