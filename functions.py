@@ -124,7 +124,6 @@ def get_article_info(queries, soup):
       article_info_dict['date'] = date_.text
   else: 
     article_info_dict['date'] = None
-
   
   # Extract author
   author = validate_if_index_exists(soup.select(queries['article_author']))
@@ -152,7 +151,6 @@ def get_article_info(queries, soup):
       article_info_dict['image'] = None
   except IndexError as e:
     article_info_dict['image'] = None
-  
   
   return article_info_dict
     

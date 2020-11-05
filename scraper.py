@@ -1,3 +1,4 @@
+import argparse
 from common import config
 import functions
 
@@ -72,5 +73,11 @@ def main():
 
 
 if __name__ == "__main__":
+	'''
+	parser = argparse.ArgumentParser()
+  parser.add_argument('-search_celebrity', action='store', dest='celebrity_name_to_search', help='Insert celebrity name')
+  args = parser.parse_args()
+  print(f'DEBUG: {args.celebrity_name_to_search}')
+	'''
 	#main()
 	search_celebrity()
