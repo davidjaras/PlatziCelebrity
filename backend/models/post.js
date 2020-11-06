@@ -4,7 +4,7 @@ async function query (id){
     try {
         let post = [];
         const data = await db.any(`SELECT categories_id FROM users_categories WHERE user_id = $1`,[id]);
-        data.map( async function (element){
+        await data.map( async function (element){
             try{
              post.push(await dataPost(element.categories_id));
             }catch{}
@@ -26,7 +26,7 @@ async function query (id){
         };
     return {
         post,
-    }
+    };
     }catch(error){
         console.error(error);
     }
