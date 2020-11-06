@@ -15,8 +15,10 @@ body {
 }
 
 .container {
-    width: 1024px;
+    display: flex;
+    flex-wrap: wrap;
     margin: 0 auto;
+    width: 1280px;
 }
 
 
