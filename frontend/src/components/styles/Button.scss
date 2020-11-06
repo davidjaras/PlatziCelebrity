@@ -1,0 +1,19 @@
+@import '../../scss/colors';
+
+.button {
+    border: none;
+    border-radius: 5px;
+    line-height: 0;
+    padding: 15px;
+    width: 130px;
+}
+
+.default {
+    color: $blue-dark;
+    background-color: white;
+}
+
+.danger {
+    color: white;
+    background-color: $red-primary;
+}

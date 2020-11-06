@@ -7,6 +7,7 @@ import './styles/Menu.css'
 import { IconContext } from 'react-icons';
 import peopleLogo from '../images/logo.svg'
 import Search from './Search';
+import ImageName from "./ImageName";
 
 function Navbar() {
   const [sidebar, setSidebar] = useState(false);
@@ -22,6 +23,7 @@ function Navbar() {
           </Link>
           <img className="logo" src={peopleLogo}></img>
           <Search />
+          <ImageName urlImage="https://cdn2.iconfinder.com/data/icons/facebook-51/32/FACEBOOK_LINE-01-512.png" name="Perfil" />
         </div>
         <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
           <ul className='nav-menu-items' onClick={showSidebar}>

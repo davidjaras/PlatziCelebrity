@@ -4,7 +4,7 @@ import Celebrities from './Celebrities'
 
 const FollowingPage = () => {
     return (
-        <div>
+        <div className="container">
             <Celebrities />
             <Bookmarks />
         </div>

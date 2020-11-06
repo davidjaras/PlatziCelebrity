@@ -2,6 +2,13 @@
 @import 'fonts';
 @import 'sizes';
 
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+  
+
 body {
     font-family: $font-primary;
     font-size: $font-size;
@@ -10,4 +17,18 @@ body {
 .container {
     width: 1024px;
     margin: 0 auto;
+}
+
+
+.inicio,
+.siguiendo,
+.tecnologia,
+.entretenimiento,
+.deporte,
+.geopolitica {
+  display: flex;
+  height: 90vh;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
 }
