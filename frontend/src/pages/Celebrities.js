@@ -2,10 +2,10 @@ import React from 'react'
 
 import './styles/Celebrities.scss'
 
-import CelebrityContainer from '../../components/CelebrityContainer';
-import ShowMore from '../../components/ShowMore'
+import CelebrityContainer from '../components/CelebrityContainer';
+import ShowMore from '../components/ShowMore'
 
-import CelebritiesMock from '../../mockData/celebrities.json'
+import CelebritiesMock from '../mockData/celebrities.json'
 
 const Celebrities = () => {
     return (

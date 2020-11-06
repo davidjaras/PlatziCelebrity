@@ -1,9 +1,9 @@
 import React from 'react'
-import BookmarkContainer from '../../components/BookmarkContainer'
+import BookmarkContainer from '../components/BookmarkContainer'
 
 import './styles/Bookmarks.scss'
 
-import BookmarksMock from '../../mockData/bookmarks.json'
+import BookmarksMock from '../mockData/bookmarks.json'
 
 const Bookmarks = () => {
     return (
