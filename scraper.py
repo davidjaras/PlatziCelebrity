@@ -45,7 +45,7 @@ def search_celebrity(name_celebrity):
 	print(notices_articles)
 
 
-def main():
+def search_all():
 
 	notices_links_count = 0
 	notices_articles = []
@@ -73,10 +73,19 @@ def main():
 
 
 if __name__ == "__main__":
+
 	parser = argparse.ArgumentParser()
 	parser.add_argument('-search_celebrity', action='store', dest='celebrity_name_to_search', help='Insert celebrity name')
 	args = parser.parse_args()
 	print(f'DEBUG: {args.celebrity_name_to_search}')
-	#main()
-	name_celebrity = args.celebrity_name_to_search
-	search_celebrity(name_celebrity)
+
+	name_celebrity = args.celebrity_name_to_search.lower()
+
+	if (name_celebrity == 'all'):
+		search_all()
+	else:
+		search_celebrity(name_celebrity)
+
+	#search_all()
+	#name_celebrity = args.celebrity_name_to_search
+	#search_celebrity(name_celebrity)
