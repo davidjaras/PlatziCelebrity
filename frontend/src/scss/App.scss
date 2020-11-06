@@ -6,3 +6,8 @@ body {
     font-family: $font-primary;
     font-size: $font-size;
 }
+
+.container {
+    width: 1024px;
+    margin: 0 auto;
+}
