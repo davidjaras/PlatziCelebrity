@@ -36,7 +36,7 @@ def search_celebrity(name_celebrity):
 		notices_links_count += len(notices_links)  # line for testing purpose
 
 		for i_notice_link in notices_links:
-			scraped_link = functions.scrape_article_from_link(host, i_notice_link)
+			scraped_link = functions.scrape_article_from_link(host, i_notice_link, name_celebrity)
 			if scraped_link:
 				notices_articles.append(scraped_link)
 

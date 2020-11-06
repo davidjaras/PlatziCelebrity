@@ -12,7 +12,7 @@ def find_name(title):
 
     name = names_celebrities[celebrity]
 
-    if len(name) <= 4:
+    if len(name) <= 5:
       continue
 
     is_any_famous_in_title = title.find(name)

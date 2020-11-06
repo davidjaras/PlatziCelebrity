@@ -76,7 +76,9 @@ def validate_link(site, link):
 '''
   Make request to link article and get information
 '''
-def scrape_article_from_link(site, url_link):
+
+
+def scrape_article_from_link(site, url_link, name_celebrity = ''):
   _queries = site['queries']
   print(f'DEBUG: LINK TO SCRAPE: {url_link}')
 
@@ -96,7 +98,7 @@ def scrape_article_from_link(site, url_link):
     return None
   
   article_soup = bs4.BeautifulSoup(article.text, 'html.parser')
-  article_info_dict = get_article_info(_queries, article_soup)
+  article_info_dict = get_article_info(_queries, article_soup, name_celebrity)
 
   if article_info_dict:
     article_info_dict['source'] = url_link
@@ -107,14 +109,18 @@ def scrape_article_from_link(site, url_link):
 '''
   get the information in the article: title, body, date, author and image
 '''
-def get_article_info(queries, soup):
+def get_article_info(queries, soup, name_celebrity=''):
   article_info_dict = {}
 
   # Extract title
   title = validate_if_index_exists(soup.select(queries['article_title']))
   if title:
-    if not find_name(title.text.lower()):
-      return None
+    if len(name_celebrity) == 0:
+      if not find_name(title.text.lower()):
+        return None
+    else:
+      if title.text.lower().find(name_celebrity) == -1:
+        return None
     article_info_dict['title'] = title.text
   else:
     article_info_dict['title'] = None
