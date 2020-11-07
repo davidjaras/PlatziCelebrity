@@ -9,6 +9,9 @@ import {
 import HomePage from './pages/HomePage/HomePage';
 import RegisterPage from './pages/RegisterPage/RegisterPage';
 import LoginPage from './pages/LoginPage/LoginPage';
+import FollowingPage from './pages/FollowingPage/FollowingPage';
+import ImageName from './components/ImageName/ImageName';
+import Search from './components/Search/Search';
 
 function App() {
   return (
@@ -25,12 +28,25 @@ function App() {
             <li>
               <Link to="/login">Login</Link>
             </li>
+            <li>
+              <Link to="/following">Siguiendo</Link>
+            </li>
           </ul>
         </nav>
+
+        <div className="container">
+          <ImageName
+            name="Sebastian R"
+            urlImage="https://mui.today/__export/1583668009494/sites/mui/img/2020/03/08/karol-g_jpg_1230492686.jpg_465253998.jpg" />
+          <Search />
+        </div>
 
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
+          <Route path="/following">
+            <FollowingPage />
+          </Route>
           <Route path="/login">
             <LoginPage />
           </Route>
