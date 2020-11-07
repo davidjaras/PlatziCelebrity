@@ -1,5 +1,5 @@
 const {db} = require('../store/database');
-//query of all post of one celebrity
+
 async function query (id){
     try {
         let post = [];
