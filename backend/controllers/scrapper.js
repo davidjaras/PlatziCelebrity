@@ -4,7 +4,7 @@ const Router = express.Router();
 
 Router.get('/', (req, res) => {
   var dataToSend;
-  const python = spawn('python', ['C:/Users/stive/Documents/PlatziCelebrity/scraper.py', 'search_celebrity "Lionel messi"']);
+  const python = spawn('python', ['C:/Users/stive/Documents/master/PlatziCelebrity/data/scraper.py', 'search_celebrity "Lionel messi"']);
   python.stdout.on('data', function (data) {
   console.log('the file say: ', data.toString());
   dataToSend = data.toString();
