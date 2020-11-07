@@ -2,18 +2,20 @@ const express = require('express');
 const {spawn} = require('child_process');
 const Router = express.Router();
 
-Router.get('/', async function (req, res) { 
- var dataToSend;
- const python = spawn('python', ['../scrapper/hola.py']);
- python.stdout.on('data', async function (data) {
-  console.log('Transformando informacion del archivo ', python);
-    dataToSend = await data.toString();
- });
- python.on('close', (code) => {
- console.log(`child process close all stdio with code ${code}`);
- console.log(dataToSend);
- res.send(dataToSend)
- });
- 
-})
+Router.get('/', (req, res) => {
+var dataToSend;
+const python = spawn('python', ['C:/Users/user/dir/PlatziCelebrity/backend/scrapper/hola.py']);
+python.stdout.on('data', function (data) {
+console.log('the file say: ', data.toString());
+dataToSend = data.toString();
+});
+python.stderr.on('data', (data) => {
+  console.error(`stderr: ${data}`);
+});
+python.on('close', (code) => {
+console.log(`the process end with de code ${code}`);
+res.send(dataToSend)
+});
+
+});
 module.exports = Router;
