@@ -8,7 +8,6 @@ async function query (id){
         data.map( function (element){
             idCategory.push(element.categories_id);
         });
-        console.log(idCategory);
         for (let i = 0; i <= idCategory.length; i++){
             let value = idCategory[i];
             post.push( await db.any(`SELECT DISTINCT users_categories.categories_id,
