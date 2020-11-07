@@ -1,6 +1,6 @@
 .navbar {
     background-color: #E4EDF4;
-    height: 50px;
+    height: 65px;
     display: flex;
     justify-content: start;
     align-items: center;
@@ -70,8 +70,4 @@
     display: flex;
     justify-content: start;
     align-items: center;
-  }
-  
-  span {
-    margin-left: 16px;
   }

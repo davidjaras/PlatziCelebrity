@@ -1,0 +1,28 @@
+@import '../../scss/colors';
+
+.topic-container {
+    align-items: center;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 700;
+    display: flex;
+    margin: 10px;
+    padding: 1rem 2rem;
+    width: 300px;
+
+    &__icon {
+        width: 50px;
+        margin-right: 1rem;
+    }
+}
+
+.isActive {
+    background-color: $blue-light;
+    color: $blue-dark;
+}
+
+.isDisabled {
+    background-color: white;
+    border: 3px solid $blue-light;
+    color: $blue-light;
+}

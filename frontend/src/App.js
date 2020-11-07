@@ -49,15 +49,16 @@
 // export default App;
 
 import React from 'react';
-import './App.css';
+import './scss/App.scss';
 import Menu from './components/Menu';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Inicio from './pages/Inicio';
-import Siguiendo from './pages/Siguiendo';
+import FollowingPage from './pages/FollowingPage'
 import Tecnologia from './pages/Tecnologia';
 import Entretenimiento from './pages/Entretenimiento';
 import Deporte from './pages/Deporte';
 import Geopolitica from './pages/Geopolitica';
+import ProfilePage from './pages/ProfilePage';
 
 function App() {
   return (
@@ -66,11 +67,12 @@ function App() {
         <Menu />
         <Switch>
           <Route path='/' exact component={Inicio} />
-          <Route path='/siguiendo' component={Siguiendo} />
+          <Route path='/siguiendo' component={FollowingPage} />
           <Route path='/tecnologia' component={Tecnologia} />
           <Route path='/entretenimiento' component={Entretenimiento} />
           <Route path='/deporte' component={Deporte} />
           <Route path='/geopolitica' component={Geopolitica} />
+          <Route path='/profile' component={ProfilePage} />
         </Switch>
       </Router>
     </>

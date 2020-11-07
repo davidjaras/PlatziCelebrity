@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './ImageName.scss';
+import './styles/ImageName.scss';
 
 const ImageName = ({ urlImage, name }) => {
     return (
