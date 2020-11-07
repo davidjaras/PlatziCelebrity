@@ -6,10 +6,6 @@ import Botongoogle from '../../components/GuideComponent/Botongoogle';
 import Terminos from '../../components/GuideComponent/Terminos';
 import InicioSesion from '../../components/GuideComponent/InicioSesion';
 
-
-
-
-
 const LoginPage = () => {
     return (
         <div className = "container__logo">
