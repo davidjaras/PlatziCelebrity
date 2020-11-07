@@ -51,7 +51,20 @@ async function query(id) {
 }
 async function followCelebrities(id){
     try{
-
+        const dataCelebrity = await db.any('SELECT celebrity_id FROM users_celebrities WHERE user_id = $1', [id]);
+        let idCelebrity = [];
+        let nameCelebrity = [];
+        dataCelebrity.map(function(element){
+            idCelebrity.push(element.celebrity_id);
+        });
+        for(let i=0; i<= idCelebrity.length; i++){
+            let a = idCelebrity[i];
+            nameCelebrity.push( await db.any(`SELECT DISTINCT celebrities.name
+            FROM
+            users_celebrities INNER JOIN celebrities ON (users_celebrities.celebrity_id =celebrities.id)
+            WHERE celebrities.id = $1`,[a]));
+        }
+        return nameCelebrity
     }catch(error){
 
     }
