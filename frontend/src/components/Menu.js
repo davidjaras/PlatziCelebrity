@@ -22,6 +22,16 @@ function Navbar() {
           </Link>
           <img className="logo" src={peopleLogo}></img>
           <Search />
+          <img
+            className="avatar"
+            src="https://s.gravatar.com/avatar/2820b257689e2df23580a62d570c7be9?s=80"
+            alt="Avatar"
+          />
+
+            <p className="perfil-text">
+              <Link to="/perfil">Mi Perfil</Link>
+            </p>
+
         </div>
         <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
           <ul className='nav-menu-items' onClick={showSidebar}>
