@@ -1,6 +1,7 @@
 import argparse
 from common import config
 import functions
+import sys
 
 
 def main_test():
@@ -74,12 +75,7 @@ def search_all():
 
 if __name__ == "__main__":
 
-	parser = argparse.ArgumentParser()
-	parser.add_argument('-search_celebrity', action='store', dest='celebrity_name_to_search', help='Insert celebrity name')
-	args = parser.parse_args()
-	print(f'DEBUG: {args.celebrity_name_to_search}')
-
-	name_celebrity = args.celebrity_name_to_search.lower()
+	name_celebrity = sys.argv[1].lower()
 
 	if (name_celebrity == 'all'):
 		search_all()

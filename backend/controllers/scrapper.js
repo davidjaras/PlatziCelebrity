@@ -1,10 +1,15 @@
 const express = require('express');
 const {spawn} = require('child_process');
 const Router = express.Router();
+const path = require('path');
 
-Router.get('/', (req, res) => {
+var rootPath = path.normalize(__dirname +'/../../data/');
+  console.log(rootPath);
+
+Router.get('/', async function (req, res){
+  
   var dataToSend;
-  const python = spawn('python', ['C:/Users/stive/Documents/master/PlatziCelebrity/data/scraper.py', 'search_celebrity "Lionel messi"']);
+  const python = spawn('python', [`C:/Users/stive/Documents/master/PlatziCelebrity/data/scraper.py`,' lionel messi']);
   python.stdout.on('data', function (data) {
   console.log('the file say: ', data.toString());
   dataToSend = data.toString();
