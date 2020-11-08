@@ -23,7 +23,7 @@ app.use('/profile', profileController);
 app.use('/register', registerController);
 app.use('/home', postController);
 
-app.listen( PORT, function () {
+app.listen( PORT,'0.0.0.0',function () {
     console.log(`Server running in http://Localhost:${PORT}`);
 });
 
