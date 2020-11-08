@@ -4,9 +4,8 @@ const Router = express.Router();
 const path = require('path');
 
 var rootPath = path.normalize(__dirname +'/../../data/');
-  console.log(rootPath);
 
-Router.get('/', async function (req, res){
+Router.get('/', function (req, res){
   
   var dataToSend;
   const python = spawn('python', [`C:/Users/stive/Documents/master/PlatziCelebrity/data/scraper.py`,' lionel messi']);
