@@ -1,7 +1,7 @@
 const pgp = require('pg-promise')();
 
 const {USER, PASSWORD, HOST, PORT, DATABASE} = process.env;
-const db = pgp(`postgres://${USER}:${PASSWORD}@${HOST}:${PORT}/${DATABASE}`);
+const db = pgp(`postgres://${USER}:${PASSWORD}@${HOST}:${PORTDB}/${DATABASE}`);
 
 function connect(){ 
     db.connect()
