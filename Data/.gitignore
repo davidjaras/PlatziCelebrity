@@ -185,4 +185,5 @@ $RECYCLE.BIN/
 
 nodemon
 .pyc
+**/__pycache__
 # End of https://www.toptal.com/developers/gitignore/api/node,windows,macos,linux
