@@ -11,7 +11,6 @@ router.get('/', function(req, res) {
 router.post('/', async function(req, res) {
   const body = req.body 
   const result = await registerModel.postUser(body);
-  console.log(result);
   res.status(200)
         .json(result);
 });
