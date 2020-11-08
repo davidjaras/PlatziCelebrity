@@ -24,5 +24,19 @@ router.get('/:id', async function(req, res) {
           .json(result);
   
   });
+  router.post('/:id', async function(req, res) {
+      const id = req.params.id
+      const category = req.body;
+      const result = await profileModel.postCategory(id, category);
+      res.status(200)
+            .json(result);
+    });
+    router.delete('/:id', async function(req, res) {
+      const id = req.params.id
+      const category = req.body;
+      const result = await profileModel.deleteCategory(id, category);
+      res.status(200)
+            .json(result);
+    });
   
   module.exports = router;
