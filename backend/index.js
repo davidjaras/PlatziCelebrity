@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser')
 const dotenv = require('dotenv').config();
-const PORT = process.env.PORT_SERVER;
+const PORT = process.env.PORT_SERV;
 //controllers
 const registerController = require('./controllers/register');
 const postController = require('./controllers/post');
