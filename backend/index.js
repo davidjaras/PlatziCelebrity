@@ -10,7 +10,6 @@ const profileController = require('./controllers/profile');
 const loginController = require('./controllers/login');
 const scrapperController = require('./controllers/scrapper');
 
-
 app.use(function(req, res, next){
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -18,9 +17,9 @@ app.use(function(req, res, next){
 });
 
 //Routes
-app.use(express.static(path.join(__dirname, '../frontend/src')));
+app.use(express.static(path.join(__dirname, './frontend/src')));
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../frontend/src'))
+    res.sendFile(path.join(__dirname, './frontend/src'))
 });
 app.use('/scrapper', scrapperController);
 app.use('/login', loginController);
