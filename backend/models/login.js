@@ -3,8 +3,9 @@ const {db} = require('../store/database');
 
 async function login(values){
     try {
-        const email = values.email;
-    const data = await db.oneOrNone(`SELECT password_ FROM users WHERE email = $1`,[email]);
+    const data = await db.any(`SELECT password_ FROM users WHERE email = $1`,[email]);
+    const dataPassword = data[0];
+    console.log(dataPassword);
     if(data.password_ === values.password){
         return{
             status: "200",

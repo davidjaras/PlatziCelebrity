@@ -7,10 +7,9 @@ router.get('/', async function(req, res) {
   res.send('welcome to the join of people news')
  });
 
-router.post('/', async function(req, res) {
-    const body = req.body 
-    const result = await loginModel.login(body);
-    res.status(code).json(result);
-  });
-
+  router.post('/', async function(req, res) {
+      const body = req.body;
+      const result = await loginModel.login(body);
+      res.status(code).json(result);
+    });
 module.exports = router;
