@@ -26,5 +26,7 @@ app.use('/profile', profileController);
 app.use('/register', registerController);
 app.use('/home', postController);
 
-app.listen( process.env.PORT || 5000 ,'0.0.0.0');
+app.listen( process.env.PORT || 5000 , function (){
+    console.log("running in http://localhost:",process.env.PORT)
+});
 
