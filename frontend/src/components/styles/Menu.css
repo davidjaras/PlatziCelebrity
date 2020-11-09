@@ -1,6 +1,6 @@
 .navbar {
     background-color: #E4EDF4;
-    height: 65px;
+    height: 50px;
     display: flex;
     justify-content: start;
     align-items: center;
@@ -14,7 +14,7 @@
 
   .logo {
     width: 100px;
-    margin-left: 190px;
+    margin-left: 6rem;
   }
   
   .nav-menu {
@@ -65,9 +65,30 @@
   
   .navbar-toggle {
     background-color: #E4EDF4;
-    width: 100%;
+    width: 50%;
     height: 50px;
     display: flex;
     justify-content: start;
     align-items: center;
+  }
+  
+  span {
+    margin-left: 16px;
+  }
+
+  .avatar {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+  }
+
+  .perfil-text {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 8px 0px 8px 16px;
+    color: #0C5991;
+    list-style: none;
+    height: 60px;
+    text-decoration: none;
   }

@@ -58,6 +58,7 @@ import Tecnologia from './pages/Tecnologia';
 import Entretenimiento from './pages/Entretenimiento';
 import Deporte from './pages/Deporte';
 import Geopolitica from './pages/Geopolitica';
+import Perfil from './pages/Perfil';
 import ProfilePage from './pages/ProfilePage';
 
 function App() {
@@ -72,6 +73,7 @@ function App() {
           <Route path='/entretenimiento' component={Entretenimiento} />
           <Route path='/deporte' component={Deporte} />
           <Route path='/geopolitica' component={Geopolitica} />
+          <Route path='/perfil' component={Perfil} />
           <Route path='/profile' component={ProfilePage} />
         </Switch>
       </Router>

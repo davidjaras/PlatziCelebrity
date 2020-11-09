@@ -7,7 +7,6 @@ import './styles/Menu.css'
 import { IconContext } from 'react-icons';
 import peopleLogo from '../images/logo.svg'
 import Search from './Search';
-import ImageName from "./ImageName";
 
 function Navbar() {
   const [sidebar, setSidebar] = useState(false);
@@ -23,9 +22,16 @@ function Navbar() {
           </Link>
           <img className="logo" src={peopleLogo}></img>
           <Search />
-          <ImageName
-            urlImage="https://cdn3.iconfinder.com/data/icons/mixed-communication-and-ui-pack-1/48/general_pack_NEW_glyph_profile-512.png"
-            name="Perfil" />
+          <img
+            className="avatar"
+            src="https://s.gravatar.com/avatar/2820b257689e2df23580a62d570c7be9?s=80"
+            alt="Avatar"
+          />
+
+            <p className="perfil-text">
+              <Link to="/perfil">Mi Perfil</Link>
+            </p>
+
         </div>
         <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
           <ul className='nav-menu-items' onClick={showSidebar}>
