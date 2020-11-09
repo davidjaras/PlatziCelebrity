@@ -8,7 +8,7 @@ const postController = require('./controllers/post');
 const profileController = require('./controllers/profile');
 const loginController = require('./controllers/login');
 const scrapperController = require('./controllers/scrapper');
-const index = require('../frontend/src/App');
+const index = require('../frontend/src/index');
 
 
 app.use(function(req, res, next){
