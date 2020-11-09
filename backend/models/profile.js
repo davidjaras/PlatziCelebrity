@@ -125,7 +125,7 @@ async function bookMarkets(id){
         }
         return dataBookMarkets;
     }catch(error){
-        console(error);
+        console.error(error);
     }
 }
 async function postCategory(id, values){

@@ -1,3 +1,4 @@
+
 const {db} = require('../store/database');
 
 async function query (id){

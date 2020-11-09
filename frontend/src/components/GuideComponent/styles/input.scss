@@ -1,0 +1,42 @@
+.container__input {
+    padding: 1rem 2rem;
+}
+
+.container__input p{
+    color: #808184;
+    font-weight: bold;
+}
+
+.input__correo{
+    width: 80%;
+    height: 30px;
+    border-radius: 5px;
+    opacity: 0.4;
+
+}
+.input__contraseña{
+    width: 80%;
+    height: 30px;
+    margin-top: 20px;
+    border-radius: 5px;
+    opacity: 0.4;
+
+}
+
+.input__boton{
+    width: 82%;
+    height: 35px; 
+    background-color: #0C5991;
+    border-radius: 20px;
+    margin-top: 20px;
+    color: white;
+    font-size: 15px;
+}
+.container__input-parafo{
+    margin-top: 40px;
+    margin-left: 80px;
+}
+.container__input-parafo a {
+    color: #808184;
+    text-decoration: none;
+}
