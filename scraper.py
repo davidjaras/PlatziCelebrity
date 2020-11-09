@@ -1,6 +1,7 @@
 import argparse
 from common import config
 import functions
+import sys
 
 
 def main_test():
@@ -40,9 +41,9 @@ def search_celebrity(name_celebrity):
 			if scraped_link:
 				notices_articles.append(scraped_link)
 
-	print(f'LINKS COUNT: {notices_links_count}')
-	print(f'ARTICLES SCRAPED COUNT: {len(notices_articles)}')
-	print(notices_articles)
+	#print(f'LINKS COUNT: {notices_links_count}')
+	#print(f'ARTICLES SCRAPED COUNT: {len(notices_articles)}')
+	return notices_articles
 
 
 def search_all():
@@ -60,9 +61,9 @@ def search_all():
 			if scraped_link:
 				notices_articles.append(scraped_link)
 	
-	print(f'LINKS COUNT: {notices_links_count}')
-	print(f'ARTICLES SCRAPED COUNT: {len(notices_articles)}')
-	print(notices_articles)
+	#print(f'LINKS COUNT: {notices_links_count}')
+	#print(f'ARTICLES SCRAPED COUNT: {len(notices_articles)}')
+	return notices_articles
 
 	# David: guarda los objetos de los links y de las noticias scrapeadas para comparara después
 	# también recuerda formatear las fechas de las noticias
@@ -74,17 +75,12 @@ def search_all():
 
 if __name__ == "__main__":
 
-	parser = argparse.ArgumentParser()
-	parser.add_argument('-search_celebrity', action='store', dest='celebrity_name_to_search', help='Insert celebrity name')
-	args = parser.parse_args()
-	print(f'DEBUG: {args.celebrity_name_to_search}')
-
-	name_celebrity = args.celebrity_name_to_search.lower()
+	name_celebrity = sys.argv[1].lower()
 
 	if (name_celebrity == 'all'):
-		search_all()
+		print(search_all())
 	else:
-		search_celebrity(name_celebrity)
+		print(search_celebrity(name_celebrity))
 
 	#search_all()
 	#name_celebrity = args.celebrity_name_to_search

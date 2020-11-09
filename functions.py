@@ -80,7 +80,7 @@ def validate_link(site, link):
 
 def scrape_article_from_link(site, url_link, name_celebrity = ''):
   _queries = site['queries']
-  print(f'DEBUG: LINK TO SCRAPE: {url_link}')
+  #print(f'DEBUG: LINK TO SCRAPE: {url_link}')
 
   if url_link.find('/videos/') != -1:
     return False
