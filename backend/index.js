@@ -8,6 +8,7 @@ const postController = require('./controllers/post');
 const profileController = require('./controllers/profile');
 const loginController = require('./controllers/login');
 const scrapperController = require('./controllers/scrapper');
+const index = require('../frontend/public/index.html');
 
 
 app.use(function(req, res, next){
@@ -16,10 +17,10 @@ app.use(function(req, res, next){
     next();
 });
 app.use(bodyParser.json());
-app.get('/', function (req, res, next){
-    res.send("index");
-})
+
+
 //Routes
+app.use('/', index);
 app.use('/scrapper', scrapperController);
 app.use('/login', loginController);
 app.use('/profile', profileController);
