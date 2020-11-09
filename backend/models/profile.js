@@ -64,7 +64,7 @@ async function query(id) {
         throw new Error ('we has problems bring all data');
     }
 }
-async function getfollowCelebrities(id){
+async function followCelebrities(id){
     try{
         const dataCelebrity = await db.any('SELECT celebrity_id FROM users_celebrities WHERE user_id = $1', [id]);
         let idCelebrity = [];
@@ -74,35 +74,33 @@ async function getfollowCelebrities(id){
         });
         for(let i=0; i<= idCelebrity.length; i++){
             let a = idCelebrity[i];
-            nameCelebrity.push( await db.any(`SELECT DISTINCT celebrities.name
+            nameCelebrity.push( await db.any(`SELECT DISTINCT celebrities.id, celebrities.name
             FROM
             users_celebrities INNER JOIN celebrities ON (users_celebrities.celebrity_id =celebrities.id)
             WHERE celebrities.id = $1`,[a]));
         }
-        return nameCelebrity
+        const celebrities = db.any('SELECT * FROM celebrities ORDER BY id DESC')
+        return {
+            nameCelebrity,
+            celebrities,
+        }
     }catch(error){
 
     }
 }
-async function postfollowCelebrities(id, values){
+async function postCelebrity(id, values){
     try{
-        
-        const dataCelebrity = await db.any('SELECT celebrity_id FROM users_celebrities WHERE user_id = $1', [id]);
-        let idCelebrity = [];
-        let nameCelebrity = [];
-        dataCelebrity.map(function(element){
-            idCelebrity.push(element.celebrity_id);
-        });
-        for(let i=0; i<= idCelebrity.length; i++){
-            let a = idCelebrity[i];
-            nameCelebrity.push( await db.any(`SELECT DISTINCT celebrities.name
-            FROM
-            users_celebrities INNER JOIN celebrities ON (users_celebrities.celebrity_id =celebrities.id)
-            WHERE celebrities.id = $1`,[a]));
-        }
-        return nameCelebrity
+        const Celebrity = values.name;
+        console.log(Celebrity)
+        const idCelebrity = await db.any('SELECT id FROM celebrities WHERE name = $1', [Celebrity])
+        await db.none(`INSERT INTO users_celebrities (user_id, celebrity_id) 
+        VALUES($1, $2)`, [ id, idCelebrity[0].id]);
+    return {
+        status: 201,
+        message: "celebrity added"
+    }
     }catch(error){
-
+        console.error(error);
     }
 }
 async function bookMarkets(id){
@@ -125,7 +123,7 @@ async function bookMarkets(id){
         }
         return dataBookMarkets;
     }catch(error){
-        console.error(error);
+        console(error);
     }
 }
 async function postCategory(id, values){
@@ -171,9 +169,9 @@ async function deleteCategory(id, values) {
 }
 module.exports = {
     query,
-    getfollowCelebrities,
-    postfollowCelebrities,
+    followCelebrities,
     bookMarkets,
     postCategory,
     deleteCategory,
+    postCelebrity
 }

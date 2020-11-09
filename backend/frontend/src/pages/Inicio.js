@@ -12,8 +12,9 @@ class Inicio extends React.Component {
     this.consultNews();
   }
 
-   consultNews = async () => {
-    let url = ''
+  consultNews = () => {
+    let url = 'https://peoplenews.herokuapp.com/api/home/1'
+
 
     await fetch(url)
       .then(respuesta => {
@@ -22,7 +23,7 @@ class Inicio extends React.Component {
       .then(news => {
         console.log(news)
         this.setState({
-          news: news.articles
+          news: news
         })
       })
   }
