@@ -15,7 +15,8 @@ class Inicio extends React.Component {
   consultNews = () => {
     let url = 'https://peoplenews.herokuapp.com/api/home/1'
 
-    fetch(url)
+
+    await fetch(url)
       .then(respuesta => {
         return respuesta.json();
       })
