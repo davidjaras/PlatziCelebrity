@@ -40,7 +40,7 @@ import './styles/input.css';
                      <input onClick = {this.handleClick} className = "input__boton" type="button" name="enviar" value="Iniciar sesion" id=""/>
                  </form>
                  <p className = "container__input-parafo">
-                     <a href=''> ¿Olvidó su contraseña? </a>
+                     <a href='#'> ¿Olvidó su contraseña? </a>
                  </p>
              </div>
          )

@@ -1,0 +1,22 @@
+[
+    {
+        "topicIcon": "entretenimiento",
+        "topicName": "Entretenimiento",
+        "isActive": true
+    },
+    {
+        "topicIcon": "tecno",
+        "topicName": "Tecnología",
+        "isActive": true
+    },
+    {
+        "topicIcon": "deporte",
+        "topicName": "Deporte",
+        "isActive": false
+    },
+    {
+        "topicIcon": "geopolitica",
+        "topicName": "Geopolitica",
+        "isActive": false
+    }
+]
