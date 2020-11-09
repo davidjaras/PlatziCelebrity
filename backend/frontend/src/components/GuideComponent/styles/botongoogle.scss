@@ -1,0 +1,25 @@
+.boton__google {
+  display: flex;
+  font-family: 'Roboto', sans-serif;
+  width: 300px;
+  height: 50px;
+  border: 3px solid #D33D27;
+  background-color: white;
+  border-radius: 10px;
+  font-weight:900;
+  font-size: 15px;
+  justify-content:space-around;
+  align-items: center;
+  position: relative;
+  margin-top: 20px;   
+}
+ 
+.boton__google img {
+  position: absolute;
+  width: 50px;
+  left: 20px;
+}
+.boton__google a {
+  color: #D33D27;
+  text-decoration: none;
+}

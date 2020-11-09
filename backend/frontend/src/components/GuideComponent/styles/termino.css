@@ -1,0 +1,11 @@
+
+
+.container__terminos p {
+  color: #808184;
+  font-size: 14px;
+}
+
+.container__terminos a {
+  text-decoration: none;
+  font-size: 14px;
+}
