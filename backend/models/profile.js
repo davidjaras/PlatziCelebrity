@@ -64,8 +64,29 @@ async function query(id) {
         throw new Error ('we has problems bring all data');
     }
 }
-async function followCelebrities(id){
+async function getfollowCelebrities(id){
     try{
+        const dataCelebrity = await db.any('SELECT celebrity_id FROM users_celebrities WHERE user_id = $1', [id]);
+        let idCelebrity = [];
+        let nameCelebrity = [];
+        dataCelebrity.map(function(element){
+            idCelebrity.push(element.celebrity_id);
+        });
+        for(let i=0; i<= idCelebrity.length; i++){
+            let a = idCelebrity[i];
+            nameCelebrity.push( await db.any(`SELECT DISTINCT celebrities.name
+            FROM
+            users_celebrities INNER JOIN celebrities ON (users_celebrities.celebrity_id =celebrities.id)
+            WHERE celebrities.id = $1`,[a]));
+        }
+        return nameCelebrity
+    }catch(error){
+
+    }
+}
+async function postfollowCelebrities(id, values){
+    try{
+        
         const dataCelebrity = await db.any('SELECT celebrity_id FROM users_celebrities WHERE user_id = $1', [id]);
         let idCelebrity = [];
         let nameCelebrity = [];
@@ -150,7 +171,8 @@ async function deleteCategory(id, values) {
 }
 module.exports = {
     query,
-    followCelebrities,
+    getfollowCelebrities,
+    postfollowCelebrities,
     bookMarkets,
     postCategory,
     deleteCategory,

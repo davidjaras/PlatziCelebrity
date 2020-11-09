@@ -6,10 +6,17 @@ async function login(values){
         const email = values.email;
     const data = await db.oneOrNone(`SELECT password_ FROM users WHERE email = $1`,[email]);
     if(data.password_ === values.password){
-        return'Login success'
+        return{
+            status: "200",
+            message:'Login success'
+        }
+    } else {
+        return {
+            status: "204"
+        }
     }
     }catch(error){
-        throw new error('');
+        throw new Error 
     }
 }
 module.exports = {
