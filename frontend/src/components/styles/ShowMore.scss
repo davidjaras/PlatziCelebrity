@@ -1,0 +1,12 @@
+@import '../../scss/colors';
+
+.show-more {
+    background-color: $blue-dark;
+    border: none;
+    border-radius: 25px;
+    color: white;
+    font-size: 16px;
+    font-weight: 900;
+    padding: 15px;
+    width: 375px;
+}

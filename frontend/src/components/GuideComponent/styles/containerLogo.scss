@@ -1,0 +1,51 @@
+$color-parrafo :#808184;
+
+
+
+.container__logo{
+ border: 1px solid $color-parrafo;
+ width: 60%;
+ margin: 10px auto;
+ border-radius: 10px;
+ box-shadow: 0 0 10px;
+ font-family: sans-serif ;
+}
+.container__logo-people{
+    text-align: center;
+ p{
+     color: $color-parrafo;
+ }
+} 
+.container__logo-people img{
+    width: 300px;
+}
+
+.container__componentes{
+    display: flex;
+}
+
+
+.container__componentes-botones{
+    border-right: 1px solid $color-parrafo ;
+    width: 50%;
+    padding-left: 80px;
+    box-sizing: border-box;
+    
+  }
+
+  .container__componente-login{
+      margin-top: 20px;
+      margin-left: 40px;
+  }
+
+  .container__footer{
+    margin-top: 30px;
+    border-top: 1px solid $color-parrafo;
+    width: 80%;
+    margin:20px auto;
+    text-align: center;
+
+    p{
+        color:$color-parrafo ;       
+    }
+}
