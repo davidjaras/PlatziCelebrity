@@ -17,9 +17,9 @@ app.use(function(req, res, next){
 });
 
 //Routes
-app.use(express.static(path.join(__dirname, './frontend/src')));
+app.use(express.static(path.join(__dirname, './frontend/public')));
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, './frontend/src'))
+    res.sendFile(path.join(__dirname, './frontend/public/index.html'))
 });
 app.use('/scrapper', scrapperController);
 app.use('/login', loginController);
