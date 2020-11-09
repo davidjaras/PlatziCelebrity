@@ -8,7 +8,6 @@ const postController = require('./controllers/post');
 const profileController = require('./controllers/profile');
 const loginController = require('./controllers/login');
 const scrapperController = require('./controllers/scrapper');
-const index = require('../frontend/src/index');
 
 
 app.use(function(req, res, next){
@@ -26,7 +25,6 @@ app.use('/login', loginController);
 app.use('/profile', profileController);
 app.use('/register', registerController);
 app.use('/home', postController);
-app.use('/', index);
 
 app.listen( process.env.PORT || 5000 ,'0.0.0.0',  function (){
     console.log("running in http://'0.0.0.0:",process.env.PORT)
