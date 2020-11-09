@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser')
 const dotenv = require('dotenv').config();
+const path = require('path');
 //controllers
 const registerController = require('./controllers/register');
 const postController = require('./controllers/post');
