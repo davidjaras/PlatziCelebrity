@@ -34,7 +34,32 @@ async function home (id){
         }
     }
 }
-
+async function category (value){
+    try {
+        let post = [];
+        post.push( await db.any(`SELECT DISTINCT users_categories.categories_id,
+        post_categories.post_id, post.title, post.content, post.source, post.views_, post.date_, post.image
+        FROM 
+        users_categories INNER JOIN post_categories ON(users_categories.categories_id = post_categories.categories_id)
+        INNER JOIN post ON(post.id = post_categories.post_id)
+        WHERE post_categories.categories_id = $1
+        GROUP BY 
+        users_categories.categories_id,
+        post_categories.post_id, post.title, post.content, post.source, post.views_, post.date_, post.image
+        ORDER BY post.date_ DESC
+        LIMIT 10`,[value]));
+    return {
+        post,
+        status:200,
+    }
+    }catch(error){
+        return {
+            status: 404,
+            message: "we cant found notice of this category"
+        }
+    }
+}
 module.exports = {
     home,
+    category,
 }

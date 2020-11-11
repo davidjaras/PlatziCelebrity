@@ -7,4 +7,9 @@ router.post('/', async function(req, res) {
     const result = await postModel.home(id);
     res.status(result.status).json(result);
 });
+router.post('/category', async function(req, res) {
+    const category = req.body.category;
+    const result = await postModel.category(category);
+    res.status(result.status).json(result);
+});
   module.exports = router;
