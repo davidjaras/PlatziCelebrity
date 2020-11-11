@@ -68,87 +68,32 @@ async function infoProfile(id) {
         }
     }
 }
-async function followCelebrities(id){
-    try{
-        const dataCelebrity = await db.any('SELECT celebrity_id FROM users_celebrities WHERE user_id = $1', [id]);
-        let idCelebrity = [];
-        let nameCelebrity = [];
-        dataCelebrity.map(function(element){
-            idCelebrity.push(element.celebrity_id);
-        });
-        for(let i=0; i<= idCelebrity.length; i++){
-            let a = idCelebrity[i];
-            nameCelebrity.push( await db.any(`SELECT DISTINCT celebrities.id, celebrities.name
-            FROM
-            users_celebrities INNER JOIN celebrities ON (users_celebrities.celebrity_id =celebrities.id)
-            WHERE celebrities.id = $1`,[a]));
-        }
-        const celebrities = db.any('SELECT * FROM celebrities ORDER BY id DESC')
-        return {
-            nameCelebrity,
-            celebrities,
-        }
-    }catch(error){
-
-    }
-}
-async function postCelebrity(id, values){
-    try{
-        const Celebrity = values.name;
-        console.log(Celebrity)
-        const idCelebrity = await db.any('SELECT id FROM celebrities WHERE name = $1', [Celebrity])
-        await db.none(`INSERT INTO users_celebrities (user_id, celebrity_id) 
-        VALUES($1, $2)`, [ id, idCelebrity[0].id]);
-    return {
-        status: 201,
-        message: "celebrity added"
-    }
-    }catch(error){
-        console.error(error);
-    }
-}
-async function bookMarkets(id){
-    try{
-        const post = await db.any('SELECT post_id FROM users_post WHERE user_id = $1', [id]);//all data of post saved
-        // return bookmarkets of tab
-        let idBookMarkets = [];
-        let dataBookMarkets = [];
-        post.map(function(element){
-            idBookMarkets.push(element.post_id);
-        });
-        for(let i=0; i<= idBookMarkets.length; i++){
-            let a = idBookMarkets[i];
-            dataBookMarkets.push( await db.any(`SELECT DISTINCT post.source, post.title, post.date_, post.image
-            FROM
-            users_post INNER JOIN post ON (post.id =users_post.post_id)
-            WHERE post.id = $1
-            GROUP BY
-            post.source, post.title, post.date_, post.image`,[a]));
-        }
-        return dataBookMarkets;
-    }catch(error){
-        console(error);
-    }
-}
+//Activate a category
 async function postCategory(id, values){
     try{
-        const idCategory = values;
         await db.none(`INSERT INTO users_categories (user_id, categories_id) 
-        VALUES($1, $2)`, [ id, idCategory[0]]);
-    return {
-        message: "category updated"
-    }
+        VALUES($1, $2)`, [ id,values]);
+        return {
+            status: 201,
+            message: "category updated"
+        }
     }catch(error){
         console.error(error);
+        return {
+            status: 204,
+        }
     }
 }
-async function deleteCategory(id, values) {
+//Desactivate a category
+async function removeCategory(id, values) {
     try{
         //bring ids of registers that user follow in table users_categories
         const idRegister = await db.any(`SELECT DISTINCT users_categories.id
-        FROM users INNER JOIN users_categories ON(users_categories.user_id = users.id)
+        FROM 
+        users INNER JOIN users_categories ON(users_categories.user_id = users.id)
         WHERE users_categories.user_id = $1
-        GROUP BY users_categories.id`, [id])
+        GROUP BY
+        users_categories.id`, [id])
         const specificId= [];
         idRegister.map(function (element){
             specificId.push(element.id)
@@ -165,12 +110,17 @@ async function deleteCategory(id, values) {
             })
         }
         return {
+            status: 201,
             message: "category removed"
         }
     }catch(error){
         console.log(error);
+        return{
+            status:204,
+        }
     }
 }
+
 module.exports = {
     infoProfile,
     followCelebrities,
