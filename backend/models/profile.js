@@ -150,9 +150,52 @@ async function followCelebrities(id){
         }
     }
 }
+//active follow a celebrity
+async function postCelebrity(id, values){
+    try{
+        await db.none(`INSERT INTO users_celebrities (user_id, celebrity_id) 
+        VALUES($1, $2)`, [ id, values]);
+        return {
+            status: 201,
+            message: "celebrity added"
+        }
+    }catch(error){
+        console.error(error);
+        return {
+            status: 204,
+        }
+    }
+}
+//unfollow a celebrity
+async function removeCelebrity(id, values){
+    try{
+        const idCelebrity = await db.any(`SELECT DISTINCT  users_celebrities.id
+        FROM 
+        users_celebrities INNER JOIN celebrities ON(users_celebrities.celebrity_id = celebrities.id)
+        WHERE users_celebrities.user_id = $1 AND celebrities.id = $2
+        GROUP BY 
+        users_celebrities.id`, [id,values]);
+        console.log(idCelebrity[0].id);
+        if(idCelebrity){
+            await db.none('DELETE FROM users_celebrities WHERE id = $1', [idCelebrity[0].id])    
+            return {
+                status:201,
+                message:"Unfollow celebrity"
+            }
+        } else{   
+            return {
+                status:204,
+            }
+        }
+    }catch{
+        return {status:204}
+    }
+}
 module.exports = {
     infoProfile,
     postCategory,
     removeCategory,
-    followCelebrities
+    followCelebrities,
+    postCelebrity,
+    removeCelebrity,
 }

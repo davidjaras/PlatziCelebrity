@@ -27,5 +27,18 @@ router.get('/follow/celebrities', async function(req, res) {
       const result = await profileModel.followCelebrities(id);
       res.status(result.status).json(result);
 });
-  
+//follow a celebrity
+router.post('/follow/celebrities', async function(req, res) {
+      const id = req.body.id;
+      const idCelebrity = req.body.celebrity;
+      const result = await profileModel.postCelebrity(id, idCelebrity);
+      res.status(result.status).json(result);
+});
+//unfollow a celebrity
+router.delete('/follow/celebrities', async function(req, res) {
+      const id = req.body.id;
+      const idCelebrity = req.body.celebrity_id;
+      const result = await profileModel.removeCelebrity(id, idCelebrity);
+      res.status(result.status).json(result);
+});  
   module.exports = router;
