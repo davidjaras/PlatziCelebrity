@@ -18,15 +18,19 @@ async function postUser (values){
                 passwordHash,
             ])
             const id= await db.any('SELECT id FROM users WHERE email = $1', values.email);
-            postCategory(id[0].id);
+            let iD = id[0].id;
+            postCategory(iD);
             return {
-                id: `${id[0].id}`,
+                status:201,
+                id: `${iD}`,
                 message: `Registered user`,
             };
         }
     }catch(error){
         console.error(error);
-        return error;
+        return {
+            status:204
+        }
         //return 'we have a user regitered with this email, please insert new email';
     }
 }

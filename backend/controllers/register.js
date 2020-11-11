@@ -5,7 +5,6 @@ const registerModel = require('../models/register');
 router.post('/', async function(req, res) {
   const body = req.body 
   const result = await registerModel.postUser(body);
-  res.status(201)
-        .json(result);
+  res.status(result.status).json(result);
 });
 module.exports = router;
