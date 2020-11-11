@@ -59,7 +59,22 @@ async function category (value){
         }
     }
 }
+async function bookmarks(id, values){
+    try{
+        await db.none('INSERT INTO users_post (user_id, post_id) VALUES($1,$2)',[id,values])
+        return{
+            status:200,
+            message:"Post saved in bookmarks"
+        }
+    }catch{
+        return {
+            status:204,
+            message:"We cant achieved save this post",
+        }
+    }
+}
 module.exports = {
     home,
     category,
+    bookmarks,
 }

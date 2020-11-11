@@ -12,4 +12,10 @@ router.post('/category', async function(req, res) {
     const result = await postModel.category(category);
     res.status(result.status).json(result);
 });
+router.post('/bookmarks', async function(req, res) {
+    const id = req.body.id;
+    const idPost = req.body.post_id;
+    const result = await postModel.bookmarks(id, idPost);
+    res.status(result.status).json(result);
+});
   module.exports = router;
