@@ -21,27 +21,11 @@ router.delete('/', async function(req, res) {
       const result = await profileModel.removeCategory(id, category);
       res.status(result.status).json(result);
 });
-  router.post('/:id/follow/celebrities', async function(req, res) {
-      const id = req.params.id
-      const celebrity = req.body;
-      const result = await profileModel.postCelebrity(id, celebrity);
-      res.status(200)
-            .json(result);
-    });
-
-  router.post('/:id', async function(req, res) {
-      const id = req.params.id
-      const category = req.body;
-      const result = await profileModel.postCategory(id, category);
-      res.status(200)
-            .json(result);
-    });
-    router.delete('/:id', async function(req, res) {
-      const id = req.params.id
-      const category = req.body;
-      const result = await profileModel.deleteCategory(id, category);
-      res.status(200)
-            .json(result);
-    });
+//all data about celebrities
+router.get('/follow/celebrities', async function(req, res) {
+      const id = req.body.id
+      const result = await profileModel.followCelebrities(id);
+      res.status(result.status).json(result);
+});
   
   module.exports = router;

@@ -120,12 +120,39 @@ async function removeCategory(id, values) {
         }
     }
 }
-
+//bring data of celebrities
+async function followCelebrities(id){
+    try{
+        const dataCelebrity = await db.any('SELECT celebrity_id FROM users_celebrities WHERE user_id = $1', [id]);
+        let idCelebrity = [];
+        let nameCelebrity = [];
+        dataCelebrity.map(function(element){
+            idCelebrity.push(element.celebrity_id);
+        });
+        for(let i=0; i< idCelebrity.length; i++){
+            let a = idCelebrity[i];
+            nameCelebrity.push( await db.any(`SELECT DISTINCT celebrities.id, celebrities.name
+            FROM
+            users_celebrities INNER JOIN celebrities ON (users_celebrities.celebrity_id =celebrities.id)
+            WHERE celebrities.id = $1
+            ORDER BY name ASC`,[a]));
+        }
+        const celebrities = await db.any('SELECT DISTINCT id, name, followers FROM celebrities ORDER BY name ASC');
+        return {
+            status:200,
+            nameCelebrity,
+            celebrities,
+        }
+    }catch(error){
+        return {
+            status: 400,
+            message: "we have a problem bring all data"
+        }
+    }
+}
 module.exports = {
     infoProfile,
-    followCelebrities,
-    bookMarkets,
     postCategory,
-    deleteCategory,
-    postCelebrity
+    removeCategory,
+    followCelebrities
 }
