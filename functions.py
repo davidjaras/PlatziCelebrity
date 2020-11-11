@@ -20,11 +20,11 @@ def get_links_notices_site(site):
   try:
     response = requests.get(_url)
   except Exception as e:
-    print('Error: ', e)
+    #print('Error: ', e)
     return None
   
   if response.status_code != 200:
-    print('Status code: ', response.status_code)
+    #print('Status code: ', response.status_code)
     return None
   
   soup = bs4.BeautifulSoup(response.text, 'html.parser')
@@ -47,11 +47,11 @@ def get_links_notices_search(site, name_celebrity):
   try:
     response = requests.get(_url)
   except Exception as e:
-    print('Error: ', e)
+    #print('Error: ', e)
     return None
 
   if response.status_code != 200:
-    print('Status code: ', response.status_code)
+    #print('Status code: ', response.status_code)
     return None
 
   soup = bs4.BeautifulSoup(response.text, 'html.parser')

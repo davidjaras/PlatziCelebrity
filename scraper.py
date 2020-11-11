@@ -1,29 +1,6 @@
-import argparse
 from common import config
 import functions
 import sys
-
-
-def main_test():
-
-	# variables for testing
-	i_host = 4
-	i_notices_links = 0
-
-	# get site to scrape
-	host = config()['news_sites'][i_host]
-
-	# get links in site to scrape
-	notices_links = functions.get_links_notices_site(host)
-
-	# get links in search site to scrape
-	#notices_links = functions.get_links_notices_search(host)
-	
-	# print(notices_links)
-
-	# test get article elements
-	print(functions.scrape_article_from_link(
-		host, notices_links[i_notices_links]))
 
 
 def search_celebrity(name_celebrity):
@@ -34,6 +11,10 @@ def search_celebrity(name_celebrity):
 	for i_host in range(1,4):
 		host = config()['news_sites'][i_host]
 		notices_links = functions.get_links_notices_search(host, name_celebrity)
+
+		if not notices_links:
+			continue
+
 		notices_links_count += len(notices_links)  # line for testing purpose
 
 		for i_notice_link in notices_links:
@@ -54,6 +35,10 @@ def search_all():
 	for i_host in range(5):
 		host = config()['news_sites'][i_host]
 		notices_links = functions.get_links_notices_site(host)
+
+		if not notices_links:
+			continue
+
 		notices_links_count += len(notices_links) #line for testing purpose
 
 		for i_notice_link in notices_links:
@@ -65,12 +50,6 @@ def search_all():
 	#print(f'ARTICLES SCRAPED COUNT: {len(notices_articles)}')
 	return notices_articles
 
-	# David: guarda los objetos de los links y de las noticias scrapeadas para comparara después
-	# también recuerda formatear las fechas de las noticias
-	# también adecua el script para busquedas particulares
-	# y por ultimo implementa el arg parse para la llamada del scritp
-	# 
-		
 
 
 if __name__ == "__main__":
@@ -78,10 +57,7 @@ if __name__ == "__main__":
 	name_celebrity = sys.argv[1].lower()
 
 	if (name_celebrity == 'all'):
-		print(search_all())
+		print(json.dumps(search_all()))
 	else:
-		print(search_celebrity(name_celebrity))
-
-	#search_all()
-	#name_celebrity = args.celebrity_name_to_search
-	#search_celebrity(name_celebrity)
+		print(json.dumps(search_celebrity(name_celebrity)))
+		
