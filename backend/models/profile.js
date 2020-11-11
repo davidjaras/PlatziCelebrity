@@ -1,6 +1,6 @@
 const {db} = require('../store/database');
-
-async function query(id) {
+//bring all data of the user
+async function infoProfile(id) {
     try{
         var dataUser = await db.any('SELECT first_name, last_name, email FROM users WHERE id = $1', [id]);//all data of user  
         const post = await db.any('SELECT post_id FROM users_post WHERE user_id = $1', [id]);//all data of post saved
@@ -41,7 +41,7 @@ async function query(id) {
         post.map(function(element){
             idBookMarkets.push(element.post_id);
         });
-        for(let i=0; i<= idBookMarkets.length; i++){
+        for(let i=0; i< idBookMarkets.length; i++){
             if(idBookMarkets.length == 0){
                 dataBookMarkets.push('you dont hava bookmarkets');
             }else {
@@ -55,13 +55,17 @@ async function query(id) {
             }
         }
         return {
+            status: 200,
             dataUser,
             nameCategory,
             dataBookMarkets,
         }
     }catch(error){
         console.error(error);
-        throw new Error ('we has problems bring all data');
+        return {
+            status:400,
+            message:"We had a problem bring all data"
+        }
     }
 }
 async function followCelebrities(id){
@@ -168,7 +172,7 @@ async function deleteCategory(id, values) {
     }
 }
 module.exports = {
-    query,
+    infoProfile,
     followCelebrities,
     bookMarkets,
     postCategory,
