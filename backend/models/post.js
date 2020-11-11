@@ -1,7 +1,7 @@
 
 const {db} = require('../store/database');
 
-async function query (id){
+async function home (id){
     try {
         let post = [];
         let idCategory = [];
@@ -23,13 +23,18 @@ async function query (id){
             ORDER BY post.date_ DESC
             LIMIT 10`,[value]));
         }
-    return post;
+        return {
+            post,
+            status:200,
+        }
     }catch(error){
-        console.error(error);
+        return {
+            status: 404,
+            message: "we cant found notice of this category"
+        }
     }
 }
 
 module.exports = {
-    query
-    
+    home,
 }
