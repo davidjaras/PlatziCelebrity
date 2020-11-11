@@ -40,5 +40,11 @@ router.delete('/follow/celebrities', async function(req, res) {
       const idCelebrity = req.body.celebrity_id;
       const result = await profileModel.removeCelebrity(id, idCelebrity);
       res.status(result.status).json(result);
-});  
+});
+//all data about bookmarks
+router.post('/follow/bookmarks', async function(req, res) {
+      const id = req.body.id
+      const result = await profileModel.bookMarkets(id);
+      res.status(result.status).json(result);
+});
   module.exports = router;

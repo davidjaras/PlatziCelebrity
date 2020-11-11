@@ -191,6 +191,37 @@ async function removeCelebrity(id, values){
         return {status:204}
     }
 }
+//bring data of post saved for the user
+async function bookMarkets(id){
+    try{
+        const post = await db.any('SELECT post_id FROM users_post WHERE user_id = $1', [id]);//all data of post saved
+        // return bookmarkets of tab
+        let idBookMarkets = [];
+        let dataBookMarkets = [];
+        post.map(function(element){
+            idBookMarkets.push(element.post_id);
+        });
+        for(let i=0; i< idBookMarkets.length; i++){
+            let a = idBookMarkets[i];
+            dataBookMarkets.push( await db.any(`SELECT DISTINCT post.source, post.title, post.date_, post.image
+            FROM
+            users_post INNER JOIN post ON (post.id =users_post.post_id)
+            WHERE post.id = $1
+            GROUP BY
+            post.source, post.title, post.date_, post.image`,[a]));
+        }
+        return{
+            status:200,
+            dataBookMarkets,
+        }
+    }catch(error){
+        console(error);
+        return {
+            status: 404,
+            message: "We have problems bring all bokkmarks"
+        }
+    }
+}
 module.exports = {
     infoProfile,
     postCategory,
@@ -198,4 +229,5 @@ module.exports = {
     followCelebrities,
     postCelebrity,
     removeCelebrity,
+    bookMarkets,
 }
