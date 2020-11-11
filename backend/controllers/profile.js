@@ -47,4 +47,11 @@ router.post('/follow/bookmarks', async function(req, res) {
       const result = await profileModel.bookMarkets(id);
       res.status(result.status).json(result);
 });
+//all data about bookmarks
+router.delete('/follow/bookmarks', async function(req, res) {
+      const id = req.body.id;
+      const idPost = req.body.post_id;
+      const result = await profileModel.removeBookMarks(id, idPost);
+      res.status(result.status).json(result);
+});
   module.exports = router;

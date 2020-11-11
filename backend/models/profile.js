@@ -222,6 +222,27 @@ async function bookMarkets(id){
         }
     }
 }
+//remove the post of the bookmarks
+async function removeBookMarks(id, values){
+    try{
+        const idPost = await db.any(`SELECT DISTINCT  users_post.id
+        FROM 
+        users_post INNER JOIN post ON(users_post.post_id = post.id)
+        WHERE users_post.post_id = $1 AND users_post.user_id = $2
+        GROUP 
+        BY users_post.id`, [values, id]);
+        let idDelete =idPost[0].id
+        await db.none('DELETE FROM users_post WHERE id = $1', [idDelete]);
+        return{
+            message: "Removed post of bookmarkets",
+            status:201
+        }
+    }catch{
+        return {
+            status:204
+        }
+    }
+}
 module.exports = {
     infoProfile,
     postCategory,
@@ -230,4 +251,5 @@ module.exports = {
     postCelebrity,
     removeCelebrity,
     bookMarkets,
+    removeBookMarks,
 }
