@@ -26,7 +26,8 @@ async function postUser (values){
         }
     }catch(error){
         console.error(error);
-        return 'we have a user regitered with this email, please insert new email';
+        return error;
+        //return 'we have a user regitered with this email, please insert new email';
     }
 }
 
