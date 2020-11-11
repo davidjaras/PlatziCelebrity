@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { SidebarData } from './SidebarData';
 import './styles/Menu.css'
 import { IconContext } from 'react-icons';
-import peopleLogo from '../images/logo.svg'
+import peopleLogo from '../images/logo.svg';
 import Search from './Search';
 
 function Navbar() {
@@ -21,7 +21,9 @@ function Navbar() {
             <Link to='#' className='menu-bars'>
               <FaIcons.FaBars onClick={showSidebar} />
             </Link>
-            <img className="logo" src={peopleLogo}></img>
+            <Link to='/'>
+              <img className="logo" src={peopleLogo}></img>
+            </Link>
           </div>
           <Search />
           <div className="perfil-link">

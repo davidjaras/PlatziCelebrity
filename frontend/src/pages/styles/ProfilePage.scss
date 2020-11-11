@@ -5,11 +5,12 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-bottom: 5rem;
-    margin-top: 5rem;
+    padding: 100px 0 0 0;
+    // margin-bottom: 5rem;
+    // margin-top: 5rem;
 
     &__divider {
-        width: 100%;
+        width: 60%;
         border: 2px solid $blue-dark;
         margin: 5px;
     }
@@ -43,8 +44,10 @@
     }
 
     &__summary {
+        text-align: center;
         color: $blue-dark;
-        font-size: 36px;
+        font-size: 26px;
         font-weight: 700;
+        width: 50%;
     }
 }
