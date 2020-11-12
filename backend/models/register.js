@@ -4,6 +4,7 @@ const bcrypt = require('bcrypt');
 //register user
 async function postUser (values){
     try {
+        console.log(values);
         if(Object.entries(values).length === 0){
             return "please completed all fields to register page";
         } else {
@@ -19,6 +20,7 @@ async function postUser (values){
             ])
             const id= await db.any('SELECT id FROM users WHERE email = $1', values.email);
             let iD = id[0].id;
+            console.log(id);
             postCategory(iD);
             return {
                 status:201,
