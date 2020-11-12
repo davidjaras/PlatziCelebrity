@@ -3,6 +3,7 @@ const app = express();
 const bodyParser = require('body-parser')
 const dotenv = require('dotenv').config();
 const path = require('path');
+
 //controllers
 const registerController = require('./controllers/register');
 const postController = require('./controllers/post');
@@ -12,10 +13,12 @@ const scrapperController = require('./controllers/scrapper');
 
 app.use(function(req, res, next){
     res.header("Access-Control-Allow-Origin", "*");
-    //res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     //res.header('content-type: application/json; charset=utf-8');
     next();
 });
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 //Routes
 app.use('/api/scrapper', scrapperController);
