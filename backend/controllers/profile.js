@@ -37,7 +37,7 @@ router.post('/follow/celebrities', async function(req, res) {
 //unfollow a celebrity
 router.delete('/follow/celebrities', async function(req, res) {
       const id = req.body.id;
-      const idCelebrity = req.body.celebrity_id;
+      const idCelebrity = req.body.celebrity;
       const result = await profileModel.removeCelebrity(id, idCelebrity);
       res.status(result.status).json(result);
 });
