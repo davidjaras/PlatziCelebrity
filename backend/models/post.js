@@ -3,7 +3,6 @@ const {db} = require('../store/database');
 
 async function home (id){
     try {
-        console.log(id);
         let post = [];
         let idCategory = [];
         const data = await db.any(`SELECT categories_id FROM users_categories WHERE user_id = $1`,[id]);
