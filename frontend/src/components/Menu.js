@@ -21,7 +21,9 @@ function Navbar() {
             <Link to='#' className='menu-bars'>
               <FaIcons.FaBars onClick={showSidebar} />
             </Link>
-            <img className="logo" src={peopleLogo}></img>
+            <Link to='/'>
+              <img className="logo" src={peopleLogo}></img>
+            </Link>
           </div>
           <Search />
           <div className="perfil-link">

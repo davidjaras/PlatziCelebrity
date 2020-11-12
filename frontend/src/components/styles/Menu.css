@@ -1,13 +1,15 @@
 .navbar {
+    position: fixed;
     background-color: #E4EDF4;
-    /* height: 50px; */
+    height: 50px;
+    width: 100%;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
   }
   
   .menu-bars {
-    margin-left: 2rem;
+    margin-left: -6rem;
     font-size: 2rem;
     background: none;
   }
@@ -73,7 +75,6 @@
   }
   
   .navbar-toggle {
-    background-color: #E4EDF4;
     width: 50%;
     height: 50px;
     display: flex;

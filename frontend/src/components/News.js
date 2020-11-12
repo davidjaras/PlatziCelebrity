@@ -6,11 +6,13 @@ class News extends Component {
     render(){
         return(
             <div>
-                {this.props.news.map(card => (
-                    <Card 
-                        key = {card.url}
-                        card = {card}
-                    />
+                {this.props.news.map(card => ( 
+                    card.map (value => (
+                        <Card 
+                        key = {value.url}
+                        card = {value}
+                        />
+                    ))
                 ))}
             </div>
         )

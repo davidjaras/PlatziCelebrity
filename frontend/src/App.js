@@ -66,6 +66,7 @@ function App() {
   return (
     <>
       <Router>
+      <Route path='/auth' component={Auth} />
         <Menu />
         <Switch>
           <Route path='/' exact component={Inicio} />
@@ -74,7 +75,7 @@ function App() {
           <Route path='/entretenimiento' component={Entretenimiento} />
           <Route path='/deporte' component={Deporte} />
           <Route path='/geopolitica' component={Geopolitica} />
-          <Route path='/auth' component={Auth} />
+          
           <Route path='/profile' component={ProfilePage} />
         </Switch>
       </Router>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import './styles/Register.scss'
+import './styles/Register.css'
 
 const Register = ({ handleRegister }) => {
 
@@ -12,35 +12,33 @@ const Register = ({ handleRegister }) => {
 
 
     return(
-        <div className="reg">
+        <div className="container__register">
             <p>Registro</p>
                  <form >
-                     <div className="reg__fullName">
-                        <div className="reg__first-name form-group">
-                            <label>Nombre</label>
-                            <input onChange={e => setFirstName(e.target.value)} 
-                                placeholder="Jhon"
+                     <div>
+                        <div className="register__correo-last">
+                            <div >
+                            <input className="register__correo-name" onChange={e => setFirstName(e.target.value)} 
+                                placeholder="Nombre"
                                 value={first_name} />
                         </div>
-                        <div className = "reg__last-name form-group">
-                            <label>Apellido</label>
-                            <input onChange={e => setLastName(e.target.value)} 
-                                placeholder="Doe"
+                        <div>
+                            <input className="register__correo-name apellido" onChange={e => setLastName(e.target.value)} 
+                                placeholder="Apellido"
                                 value={last_name} />
                         </div>
+                           </div>
                      </div>
-                     <div className = "reg__email form-group">
-                        <label>Email</label>
-                        <input onChange={e => setEmail(e.target.value)} 
+                     <div>
+                        <input className="register__correo" onChange={e => setEmail(e.target.value)} 
                             type="email"
-                            placeholder="jhondoe@abc.com"
+                            placeholder="Email"
                             value={email} />
                      </div>
-                     <div className = "reg__password form-group">
-                        <label>Password</label>
-                        <input onChange={e => setPassword(e.target.value)} 
+                     <div>
+                        <input className="register__contraseña" onChange={e => setPassword(e.target.value)} 
                             type="password"
-                            placeholder="****"
+                            placeholder="Contraseña"
                             value={password} />
                      </div>
                      <input onClick = {e => handleRegister(
@@ -50,7 +48,7 @@ const Register = ({ handleRegister }) => {
                             email,
                             password
                          }
-                     )} className="input__boton" type="button" name="enviar" value="Registrarse" id="register"/>
+                     )} className="register__boton" type="button" name="enviar" value="Registrarse" id="register"/>
                  </form>
         </div>
     )

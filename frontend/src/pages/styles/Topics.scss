@@ -1,12 +1,20 @@
 @import '../../scss/colors';
 
 .topics {
+<<<<<<< HEAD
     align-items: center;
     display: flex;
     flex-direction: column;
     margin-top: 3rem;
     
     // width: 70%;
+=======
+    margin-top: 2rem ;
+    text-align: center;
+    width: 70%;
+    margin-left: 250px;;
+
+>>>>>>> 6a15400539df8136d52a262086d8b833e9bcfdd9
 
     &__content {
         display: flex;

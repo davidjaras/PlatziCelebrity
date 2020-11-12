@@ -5,6 +5,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+<<<<<<< HEAD
     margin-bottom: 5rem;
     margin-top: 5rem;
     width: 70%;
@@ -13,6 +14,14 @@
 
     &__divider {
         width: 90%;
+=======
+    padding: 100px 0 0 0;
+    // margin-bottom: 5rem;
+    // margin-top: 5rem;
+
+    &__divider {
+        width: 60%;
+>>>>>>> 6a15400539df8136d52a262086d8b833e9bcfdd9
         border: 2px solid $blue-dark;
 
     }
@@ -47,9 +56,15 @@
     }
 
     &__summary {
+        text-align: center;
         color: $blue-dark;
         font-size: 26px;
+<<<<<<< HEAD
         font-weight: 600;
         
+=======
+        font-weight: 700;
+        width: 50%;
+>>>>>>> 6a15400539df8136d52a262086d8b833e9bcfdd9
     }
 }
