@@ -8,21 +8,21 @@ router.post('/', async function(req, res) {
       res.status(result.status).json(result);  
 });
 //active a category
-router.post('/', async function(req, res) {
+router.post('/category', async function(req, res) {
       const id = req.body.id
       const category = req.body.category;
       const result = await profileModel.postCategory(id, category);
       res.status(result.status).json(result);
 });
 //desactive a category
-router.delete('/', async function(req, res) {
+router.delete('/category', async function(req, res) {
       const id = req.body.id
       const category = req.body.category;
       const result = await profileModel.removeCategory(id, category);
       res.status(result.status).json(result);
 });
 //all data about celebrities
-router.post('/follow/celebrities', async function(req, res) {
+router.post('/celebrities', async function(req, res) {
       const id = req.body.id
       const result = await profileModel.followCelebrities(id);
       res.status(result.status).json(result);
@@ -42,12 +42,12 @@ router.delete('/follow/celebrities', async function(req, res) {
       res.status(result.status).json(result);
 });
 //all data about bookmarks
-router.post('/follow/bookmarks', async function(req, res) {
+router.post('/bookmarks', async function(req, res) {
       const id = req.body.id
-      const result = await profileModel.bookMarkets(id);
+      const result = await profileModel.bookMarks(id);
       res.status(result.status).json(result);
 });
-//all data about bookmarks
+//remove a bookmarks
 router.delete('/follow/bookmarks', async function(req, res) {
       const id = req.body.id;
       const idPost = req.body.post_id;

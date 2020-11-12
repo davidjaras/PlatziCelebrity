@@ -4,13 +4,13 @@ const bcrypt = require('bcrypt');
 async function login(values){
     try {
         const email = values.email;
-        const data = await db.oneOrNone(`SELECT password_ FROM users WHERE email = $1`,[email]);
-        const check = bcrypt.compareSync(values.password, data.password_);
+        const data = await db.any(`SELECT password_ FROM users WHERE email = $1`,[email]);
+        const check = bcrypt.compareSync(values.password, data[0].password_);
         if(check === true){
-            const idUser = await db.any('SELECT id FROM users WHERE email = $1', [email])
-            let id = idUser[0].id;
+            const idUser = await db.one('SELECT id FROM users WHERE email = $1', [email])
+            let iD = idUser.id;
             return {
-                id,
+                iD,
                 message:'Login success',
                 status: 200,
             }

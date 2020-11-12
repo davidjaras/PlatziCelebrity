@@ -192,7 +192,7 @@ async function removeCelebrity(id, values){
     }
 }
 //bring data of post saved for the user
-async function bookMarkets(id){
+async function bookMarks(id){
     try{
         const post = await db.any('SELECT post_id FROM users_post WHERE user_id = $1', [id]);//all data of post saved
         // return bookmarkets of tab
@@ -250,6 +250,6 @@ module.exports = {
     followCelebrities,
     postCelebrity,
     removeCelebrity,
-    bookMarkets,
+    bookMarks,
     removeBookMarks,
 }
