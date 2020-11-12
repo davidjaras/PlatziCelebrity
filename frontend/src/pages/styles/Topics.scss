@@ -1,30 +1,26 @@
 @import '../../scss/colors';
 
 .topics {
-<<<<<<< HEAD
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    margin-top: 3rem;
-    
-    // width: 70%;
-=======
     margin-top: 2rem ;
-    text-align: center;
+    // text-align: center;
     width: 70%;
-    margin-left: 250px;;
-
->>>>>>> 6a15400539df8136d52a262086d8b833e9bcfdd9
-
+    margin:auto;
+    
+    
     &__content {
         display: flex;
         flex-wrap: wrap;
         margin-top: 10px;
+        width: 100%;
+        justify-content: space-between;
     }
 
     &__title {
         color: $blue-dark;
         font-size: 24px;
         font-weight: 600;
+        text-align: center;
+        margin-top: 30px;
+
     }
 }

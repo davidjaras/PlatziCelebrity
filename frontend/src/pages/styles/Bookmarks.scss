@@ -9,8 +9,10 @@
     &__content {
        display: flex;
         flex-wrap: wrap; 
-        // width: 70%;
-        margin-left:25px;
+        width: 70%;
+        // margin-left:25px;
+        margin: auto;
+
     }
 
     &__title {
