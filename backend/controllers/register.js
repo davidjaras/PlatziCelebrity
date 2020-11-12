@@ -11,20 +11,22 @@ router.get('/', function(req, res) {
 router.post('/', async function(req, res) {
   const body = req.body 
   const result = await registerModel.postUser(body);
-  console.log(result);
   res.status(200)
         .json(result);
 });
 
+router.get('/category', function(req, res){
+  res.send('Register categories page')
+})
 
-router.post('/category', async function(req, res) {
+router.post('/category/:id', async function(req, res) {
+  const id = req.params.id;
   const body = req.body 
-  console.log(body);
-  const result = await registerModel.postCategory(body);
-  console.log(result);
+  const result = await registerModel.postCategory(body, id);
   res.status(200)
         .json(result);
 
 });
+
 
 module.exports = router;
