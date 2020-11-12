@@ -17,10 +17,10 @@ async function postUser (values){
                 values.email,
                 passwordHash,
             ])
-            /*const id= await db.any('SELECT id FROM users WHERE email = $1', values.email);
+            const id= await db.any('SELECT id FROM users WHERE email = $1', values.email);
             let iD = id[0].id;
             postCategory(iD);
-            */return {
+            return {
                 status:201,
                 //id: `${iD}`,
                 message: `Registered user`,
