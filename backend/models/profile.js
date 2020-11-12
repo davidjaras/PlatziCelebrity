@@ -203,12 +203,12 @@ async function bookMarks(id){
         });
         for(let i=0; i< idBookMarkets.length; i++){
             let a = idBookMarkets[i];
-            dataBookMarkets.push( await db.any(`SELECT DISTINCT post.source, post.title, post.date_, post.image
+            dataBookMarkets.push( await db.any(`SELECT DISTINCT post.id, post.source, post.title, post.date_, post.image
             FROM
             users_post INNER JOIN post ON (post.id =users_post.post_id)
             WHERE post.id = $1
             GROUP BY
-            post.source, post.title, post.date_, post.image`,[a]));
+            post.id, post.source, post.title, post.date_, post.image`,[a]));
         }
         return{
             status:200,
