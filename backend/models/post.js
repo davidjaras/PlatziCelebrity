@@ -22,7 +22,7 @@ async function home (id){
             users_categories.categories_id,
             post_categories.post_id, post.title, post.content, post.source, post.views_, post.date_, post.image
             ORDER BY post.date_ DESC
-            LIMIT 10`,[value]));
+            LIMIT 15`,[value]));
         }
         return {
             post,
