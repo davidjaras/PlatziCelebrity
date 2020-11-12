@@ -1,18 +1,27 @@
 @import '../../scss/colors';
 
 .bookmarks {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    margin-top: 2rem;
-    width: 100%;
-
+    // display: flex;
+    // margin-top: 2rem;
+    // padding-left: 5px;
+    
+    
     &__content {
-        display: flex;
-        flex-wrap: wrap;
+       display: flex;
+        flex-wrap: wrap; 
+        width: 70%;
+        // margin-left:25px;
+        margin: auto;
+
     }
 
     &__title {
         color: $blue-dark;
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 10px;
+        margin-top: 100px;
+        text-align: center  ;
     }
 }
+

@@ -8,7 +8,9 @@ import BookmarksMock from '../mockData/bookmarks.json'
 const Bookmarks = () => {
     return (
         <div className="bookmarks">
-            <h1 className="bookmarks__title">Marcadores</h1>
+            <div>
+              <h1 className="bookmarks__title">Marcadores</h1>
+            </div>
             <div className="bookmarks__content">
                 {BookmarksMock.map((item, index) => {
                     return (
