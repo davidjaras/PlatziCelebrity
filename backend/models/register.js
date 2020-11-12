@@ -9,7 +9,6 @@ async function postUser (values){
             return "please completed all fields to register page";
         } else {
             const passwordHash = await bcrypt.hash(values.password, 7);
-            console.log(passwordHash);
             await db.result(`INSERT INTO users (first_name, last_name, email, password_, level_id) 
             VALUES($1,$2, $3, $4, 2)`,
             [
@@ -18,13 +17,12 @@ async function postUser (values){
                 values.email,
                 passwordHash,
             ])
-            const id= await db.any('SELECT id FROM users WHERE email = $1', values.email);
+            /*const id= await db.any('SELECT id FROM users WHERE email = $1', values.email);
             let iD = id[0].id;
-            console.log(id);
             postCategory(iD);
-            return {
+            */return {
                 status:201,
-                id: `${iD}`,
+                //id: `${iD}`,
                 message: `Registered user`,
             };
         }
