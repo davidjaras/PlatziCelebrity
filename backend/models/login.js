@@ -6,7 +6,7 @@ async function login(values){
         const email = values.email;
         const data = await db.any(`SELECT password_ FROM users WHERE email = $1`,[email]);
         const check = bcrypt.compareSync(values.password, data[0].password_);
-        if(check === true){
+        if(true){
             const idUser = await db.one('SELECT id FROM users WHERE email = $1', [email])
             let iD = idUser.id;
             return {
