@@ -4,7 +4,7 @@ const profileModel = require('../models/profile')
 //all data about user
 router.post('/', async function(req, res) {
       const id = req.body.id
-      const result = await profileModel.query(id);
+      const result = await profileModel.infoProfile(id);
       res.status(result.status).json(result);  
 });
 //active a category
