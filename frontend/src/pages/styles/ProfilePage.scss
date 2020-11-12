@@ -7,11 +7,14 @@
     justify-content: center;
     margin-bottom: 5rem;
     margin-top: 5rem;
+    width: 70%;
+
+
 
     &__divider {
-        width: 100%;
+        width: 90%;
         border: 2px solid $blue-dark;
-        margin: 5px;
+
     }
 
     &__info {
@@ -19,6 +22,7 @@
         display: flex;
         flex-direction: column;
         margin-bottom: 5rem;
+
 
         a {
             color: $blue-dark;
@@ -44,7 +48,8 @@
 
     &__summary {
         color: $blue-dark;
-        font-size: 36px;
-        font-weight: 700;
+        font-size: 26px;
+        font-weight: 600;
+        
     }
 }

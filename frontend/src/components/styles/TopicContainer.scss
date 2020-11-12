@@ -3,15 +3,17 @@
 .topic-container {
     align-items: center;
     border-radius: 10px;
-    font-size: 20px;
-    font-weight: 700;
+    font-size: 16px;
+    font-weight: 600;
     display: flex;
-    margin: 10px;
-    padding: 1rem 2rem;
-    width: 300px;
+    margin: 5px;
+    padding-right: 10px;
+    width: 200px;
+    box-sizing: border-box;
+
 
     &__icon {
-        width: 50px;
+        width: 40px;
         margin-right: 1rem;
     }
 }
