@@ -22,7 +22,7 @@ async function postUser (values){
             postCategory(iD);
             return {
                 status:201,
-                //id: `${iD}`,
+                id: `${iD}`,
                 message: `Registered user`,
             };
         }
