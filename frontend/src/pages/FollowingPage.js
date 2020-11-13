@@ -1,18 +1,26 @@
-import React, { useState }  from 'react'
+import React, { useEffect, useState }  from 'react'
 import Bookmarks from './Bookmarks'
 import Celebrities from './Celebrities'
 
 import './styles/FollowingPage.scss'
 
+import { useHistory } from 'react-router-dom';
+
 const FollowingPage = () => {
 
-    // let switcher = 'bookmarks';
+    const history = useHistory();
     const [switcher, setSwitcher] = useState('celebrities');
+
+    useEffect(() => {
+        const userSession = JSON.parse(sessionStorage.getItem('userSession'))
+        if (!userSession) {
+            history.push('/')
+        }
+    }, [])
 
     function switchTab(evt, selected) {
         evt.preventDefault();
         setSwitcher(selected);
-        console.log('epa', selected, switcher)
     }
 
     return (

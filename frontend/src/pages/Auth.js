@@ -9,40 +9,53 @@ import Register from '../components/Register';
 
 const Auth = () => {
     const history = useHistory();
+    const URI = 'https://peoplenews.herokuapp.com/api'
 
     function handleRegister(body) {
         // console.log({body});
 
-        fetch('https://peoplenews.herokuapp.com/register', {
+        fetch(`${URI}/register`, {
             method: 'POST',
-            body
+            body: JSON.stringify(body),
+            headers: {
+                'Content-Type': 'application/json'
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
         })
-        .then(response => response.json())
+        .then(response => {
+            console.log('response :>> ', response);
+            response.json()
+        })
         .then(response => {
             console.log('sera?', response)
-            history.push("/");
+            sessionStorage.setItem('userSession', response)
+            history.push("/home");
         })
         .catch(error => {
             console.log({ error })
-            history.push("/auth");
+            history.push("/");
         })
     }
 
     function handleLogin(body) {
         // console.log({body});
 
-        fetch('https://peoplenews.herokuapp.com/login', {
+        fetch(`${URI}/login`, {
             method: 'POST',
-            body
+            body: JSON.stringify(body),
+            headers: {
+                'Content-Type': 'application/json'
+            },
         })
         .then(response => response.json())
         .then(response => {
             console.log('sera?', response)
-            history.push("/");
+            sessionStorage.setItem('userSession', JSON.stringify(response))
+            history.push("/home");
         })
         .catch(error => {
             console.log({ error })
-            history.push("/auth");
+            history.push("/");
         })
     }
 
