@@ -1,13 +1,15 @@
 const express = require('express');
 const {spawn} = require('child_process');
 const scrapperModel = require('../models/scrapper');
+const path = require('path');
 const Router = express.Router();
+const pathAbsolute = path.join(__dirname, "../backend/data/scraper.py");
 
 
 Router.post('/all', (req, res) => {
   console.log(celebrity);
   var dataToSend;
-  const python = spawn('python', [path.join('C:/Users/stive/Documents/master/PlatziCelebrity/backend/data/scraper.py'), `all`]);
+  const python = spawn('python', [pathAbsolute, `all`]);
   python.stdout.on('data', function (data) {
   dataToSend = data.toString();
 
@@ -29,7 +31,7 @@ Router.post('/search', (req, res) => {
   let celebrity = req.body.name;
   console.log(celebrity);
   var dataToSend;
-  const python = spawn('python', ['C:/Users/stive/Documents/master/PlatziCelebrity/backend/data/scraper.py', `${celebrity}`]);
+  const python = spawn('python', [pathAbsolute, `${celebrity}`]);
   python.stdout.on('data', function (data) {
   dataToSend = data.toString();
   });
