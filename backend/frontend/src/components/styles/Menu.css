@@ -92,7 +92,7 @@
     height: 40px;
   }
 
-  .perfil-text {
+  .perfil-text a {
     display: flex;
     justify-content: start;
     align-items: center;
