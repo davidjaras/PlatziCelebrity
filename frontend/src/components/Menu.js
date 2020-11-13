@@ -21,7 +21,7 @@ function Navbar() {
             <Link to='#' className='menu-bars'>
               <FaIcons.FaBars onClick={showSidebar} />
             </Link>
-            <Link to='/'>
+            <Link to='/home'>
               <img className="logo" src={peopleLogo}></img>
             </Link>
           </div>

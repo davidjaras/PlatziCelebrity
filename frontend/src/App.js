@@ -58,7 +58,6 @@ import Tecnologia from './pages/Tecnologia';
 import Entretenimiento from './pages/Entretenimiento';
 import Deporte from './pages/Deporte';
 import Geopolitica from './pages/Geopolitica';
-import Perfil from './pages/Perfil';
 import ProfilePage from './pages/ProfilePage';
 import Auth from './pages/Auth';
 
@@ -66,10 +65,10 @@ function App() {
   return (
     <>
       <Router>
-      <Route path='/auth' component={Auth} />
+      <Route path='/' exact component={Auth} />
         <Menu />
         <Switch>
-          <Route path='/' exact component={Inicio} />
+          <Route path='/home' component={Inicio} />
           <Route path='/siguiendo' component={FollowingPage} />
           <Route path='/tecnologia' component={Tecnologia} />
           <Route path='/entretenimiento' component={Entretenimiento} />

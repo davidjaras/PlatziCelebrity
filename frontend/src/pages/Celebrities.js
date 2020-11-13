@@ -1,17 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react'
 import './styles/Celebrities.scss';
 import CelebrityContainer from '../components/CelebrityContainer';
 import ShowMore from '../components/ShowMore';
 import CelebritiesMock from '../mockData/celebrities.json';
 
+import { useHistory } from 'react-router-dom';
+
 const Celebrities = () => {
 
-   
-
-// (async function(){
-//     let hello = await getCountryAsync()
-//     console.log("log => ", hello)
-// })()  
 
     return (
         <div className="celebrities">

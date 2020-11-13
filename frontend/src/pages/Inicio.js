@@ -1,19 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import News from '../components/News';
 import TitleNews from '../components/TitleNews';
 
-class Inicio extends React.Component {
+import { useHistory } from 'react-router-dom';
 
-  state = {
-    news : []
-  }
+const Inicio = () => {
 
-  constructor() {
-    super();
-    this.consultNews();
-  }
+  const history = useHistory();
 
-  consultNews = () => {
+  const [ news, setNews ] = useState([])
+
+  useEffect(() => {
+    consultNews();
+    const userSession = JSON.parse(sessionStorage.getItem('userSession'))
+    if (!userSession) {
+      history.push('/')
+    }
+  }, [])
+
+  const consultNews = () => {
     let url = 'https://peoplenews.herokuapp.com/api/home'
 
     fetch(url, {
@@ -21,32 +26,25 @@ class Inicio extends React.Component {
       body: JSON.stringify({ id: 52 }),
       headers: {
           'Content-Type': 'application/json'
-          // 'Content-Type': 'application/x-www-form-urlencoded',
       },
     })
     .then(respuesta => {
       return respuesta.json();
     })
-    .then(news => {
-      console.log('news', news)
-      this.setState({
-        news
-      })
+    .then(response => {
+      console.log('news', response)
+      setNews(response)
     })
   }
 
-  render() {
-    console.log('this.state :>> ', this.state);
-    return (
-      <div className='inicio'>
-        <TitleNews />
-        <News 
-          news={this.state.news.post}
-        />
-      </div>
-    ); 
-  }
+  return(
+    <div className='inicio'>
+      <TitleNews />
+      <News 
+        news={news.post}
+      />
+    </div>
+  )
 }
-  
 
 export default Inicio;

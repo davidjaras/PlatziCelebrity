@@ -28,11 +28,12 @@ const Auth = () => {
         })
         .then(response => {
             console.log('sera?', response)
-            // history.push("/");
+            sessionStorage.setItem('userSession', response)
+            history.push("/home");
         })
         .catch(error => {
             console.log({ error })
-            history.push("/auth");
+            history.push("/");
         })
     }
 
@@ -44,20 +45,17 @@ const Auth = () => {
             body: JSON.stringify(body),
             headers: {
                 'Content-Type': 'application/json'
-                // 'Content-Type': 'application/x-www-form-urlencoded',
             },
         })
-        .then(response => {
-            console.log('response :>> ', response);
-            response.json()
-        })
+        .then(response => response.json())
         .then(response => {
             console.log('sera?', response)
-            history.push("/");
+            sessionStorage.setItem('userSession', JSON.stringify(response))
+            history.push("/home");
         })
         .catch(error => {
             console.log({ error })
-            history.push("/auth");
+            history.push("/");
         })
     }
 

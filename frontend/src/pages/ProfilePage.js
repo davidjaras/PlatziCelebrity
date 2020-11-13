@@ -1,10 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState }  from 'react'
 import Bookmarks from './Bookmarks';
 
 import './styles/ProfilePage.scss'
 import Topics from './Topics';
 
+import { useHistory } from 'react-router-dom';
+
 const ProfilePage = () => {
+    
+    const history = useHistory();
+
+    useEffect(() => {
+        const userSession = JSON.parse(sessionStorage.getItem('userSession'))
+        if (!userSession) {
+            history.push('/')
+        }
+    }, [])
+
     return (
         <div className="profile container">
             <div className="profile__info">
