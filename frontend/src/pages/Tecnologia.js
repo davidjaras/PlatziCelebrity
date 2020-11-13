@@ -1,10 +1,43 @@
 import React from 'react';
+import {useState,useEffect} from 'react';
+import News from '../components/News';
+
+
 
 function Tecnologia() {
+  const [state,setState]= useState({news:[]})
+  useEffect(()=>{
+    consultNews()
+    }, []);
+
+  let consultNews = async () => {
+    let url = 'https://peoplenews.herokuapp.com/api/home/category';
+
+
+    await fetch(url, {
+      method: 'POST',
+      body: JSON.stringify({ category : 4 }),
+      headers: {
+          'Content-Type': 'application/json'
+          // 'Content-Type': 'application/x-www-form-urlencoded',
+      },
+    })
+    .then(respuesta => {
+      return respuesta.json();
+    })
+    .then(news => {
+      console.dir( news)
+      setState(news)
+
+    })
+  }
+    
   return (
-    <div className='tecnologia'>
-      <h1>Tecnología</h1>
-    </div>
+    <div className='inicio'>
+    <News 
+      news={state.post}
+    />
+  </div>
   );
 }
 

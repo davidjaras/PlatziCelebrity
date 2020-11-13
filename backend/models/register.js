@@ -23,28 +23,30 @@ async function postUser (values){
 }
 
 //register categories
-async function postCategory(values){
+async function postCategory(values, id){
     try{
-        const userId = await db.one('SELECT MAX(id) FROM users')
-    if(values.entretainment == true){
-        await db.result(`INSERT INTO users_categories (user_id, categories_id)
-        VALUES ($1, $2)`, [userId.max, 1 ]);
-    };
-    if(values.sport == true){
-        await db.result(`INSERT INTO users_categories (user_id, categories_id)
-        VALUES ($1, $2)`, [userId.max, 2]);
-    };
-    if(values.geopolitic == true){
-        await db.result(`INSERT INTO users_categories (user_id, categories_id)
-        VALUES ($1, $2)`, [userId.max, 3]);
-    };
-    if(values.tech == true){
-        await db.result(`INSERT INTO users_categories (user_id, categories_id)
-        VALUES ($1, $2)`, [userId.max, 4]);
-    };
-    return {
-        message: `Registered categories!`,
-    }
+        if(Object.entries(values).length === 0){
+            return "please completed all fields to register page";
+        } else {
+            if(values.entretainment == true){
+                await db.result(`INSERT INTO users_categories (user_id, categories_id)
+                VALUES ($1, $2)`, [id, 1 ]);
+            };
+            if(values.sport == true){
+                await db.result(`INSERT INTO users_categories (user_id, categories_id)
+                VALUES ($1, $2)`, [id, 2]);
+            };
+            if(values.geopolitic == true){
+                await db.result(`INSERT INTO users_categories (user_id, categories_id)
+                VALUES ($1, $2)`, [id, 3]);
+            };
+            if(values.tech == true){
+                await db.result(`INSERT INTO users_categories (user_id, categories_id)
+                VALUES ($1, $2)`, [id, 4]);
+            };
+            return "registered categories";
+        }
+
     }catch(error){
         return error;
     }
