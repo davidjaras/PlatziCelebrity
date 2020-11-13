@@ -20,16 +20,19 @@ def get_links_notices_site(site):
   try:
     response = requests.get(_url)
   except Exception as e:
-    print('Error: ', e)
+    #print('Error: ', e)
     return None
   
   if response.status_code != 200:
-    print('Status code: ', response.status_code)
+    #print('Status code: ', response.status_code)
     return None
   
   soup = bs4.BeautifulSoup(response.text, 'html.parser')
   links_articles = soup.select(_queries['homepage_article_links'])
   links_articles = [validate_link(site, link.get('href')) for link in links_articles]
+
+  if len(links_articles) > 25:
+    links_articles = links_articles[0:25]
 
   return links_articles
 
@@ -47,11 +50,11 @@ def get_links_notices_search(site, name_celebrity):
   try:
     response = requests.get(_url)
   except Exception as e:
-    print('Error: ', e)
+    #print('Error: ', e)
     return None
 
   if response.status_code != 200:
-    print('Status code: ', response.status_code)
+    #print('Status code: ', response.status_code)
     return None
 
   soup = bs4.BeautifulSoup(response.text, 'html.parser')
@@ -80,7 +83,7 @@ def validate_link(site, link):
 
 def scrape_article_from_link(site, url_link, name_celebrity = ''):
   _queries = site['queries']
-  print(f'DEBUG: LINK TO SCRAPE: {url_link}')
+  #print(f'DEBUG: LINK TO SCRAPE: {url_link}')
 
   if url_link.find('/videos/') != -1:
     return False
@@ -112,12 +115,14 @@ def scrape_article_from_link(site, url_link, name_celebrity = ''):
 def get_article_info(queries, soup, name_celebrity=''):
   article_info_dict = {}
 
-  # Extract title
+  # Extract title and attach celebrity name to response
   title = validate_if_index_exists(soup.select(queries['article_title']))
   if title:
     if len(name_celebrity) == 0:
-      if not find_name(title.text.lower()):
+      name_found = find_name(title.text.lower())
+      if not name_found:
         return None
+      article_info_dict['celebrity'] = name_found
     else:
       if title.text.lower().find(name_celebrity) == -1:
         return None
