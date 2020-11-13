@@ -1,4 +1,5 @@
-from common import config
+#from common import config
+from config import config_sites
 import functions
 import sys
 import json
@@ -10,7 +11,8 @@ def search_celebrity(name_celebrity):
 	notices_articles = []
 
 	for i_host in range(1,4):
-		host = config()['news_sites'][i_host]
+		#host = config()['news_sites'][i_host]
+		host = config_sites['news_sites'][i_host]
 		notices_links = functions.get_links_notices_search(host, name_celebrity)
 
 		if not notices_links:
@@ -34,7 +36,8 @@ def search_all():
 	notices_articles = []
 
 	for i_host in range(5):
-		host = config()['news_sites'][i_host]
+		#host = config()['news_sites'][i_host]
+		host = config_sites['news_sites'][i_host]
 		notices_links = functions.get_links_notices_site(host)
 
 		if not notices_links:
@@ -57,6 +60,7 @@ if __name__ == "__main__":
 
 	name_celebrity = sys.argv[1].lower()
 	name_celebrity = name_celebrity.replace('+', ' ')
+
 
 	if (name_celebrity == 'all'):
 		print(json.dumps(search_all()))
