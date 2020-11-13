@@ -1,5 +1,6 @@
 #from common import config
 from config import config_sites
+import names_search
 import functions
 import sys
 import json
@@ -9,6 +10,9 @@ def search_celebrity(name_celebrity):
 
 	notices_links_count = 0
 	notices_articles = []
+
+	if not names_search.validate_if_name_exists(name_celebrity):
+		return notices_articles
 
 	for i_host in range(1,4):
 		#host = config()['news_sites'][i_host]
