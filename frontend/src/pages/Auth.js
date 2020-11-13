@@ -22,14 +22,13 @@ const Auth = () => {
                 // 'Content-Type': 'application/x-www-form-urlencoded',
             },
         })
-        .then(response => {
-            console.log('response :>> ', response);
-            response.json()
-        })
+        .then(response => response.json())
         .then(response => {
             console.log('sera?', response)
-            sessionStorage.setItem('userSession', response)
-            history.push("/home");
+            sessionStorage.setItem('userSession', JSON.stringify(response))
+            setTimeout(() => {
+                history.push("/");
+            }, 50);
         })
         .catch(error => {
             console.log({ error })
