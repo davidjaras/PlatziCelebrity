@@ -1,13 +1,14 @@
-import React from 'react'
-
-import './styles/Celebrities.scss'
-
+import React, { useEffect } from 'react'
+import './styles/Celebrities.scss';
 import CelebrityContainer from '../components/CelebrityContainer';
-import ShowMore from '../components/ShowMore'
+import ShowMore from '../components/ShowMore';
+import CelebritiesMock from '../mockData/celebrities.json';
 
-import CelebritiesMock from '../mockData/celebrities.json'
+import { useHistory } from 'react-router-dom';
 
 const Celebrities = () => {
+
+
     return (
         <div className="celebrities">
             <h1 className="celebrities__title">Celebridades</h1>

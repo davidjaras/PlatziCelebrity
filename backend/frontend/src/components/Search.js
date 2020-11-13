@@ -1,6 +1,7 @@
 import React from 'react';
 
 import './styles/Search.css'
+import icon_search from '../images/icon_search.svg'
 
 class Search extends React.Component {
     state={
@@ -16,8 +17,11 @@ class Search extends React.Component {
 
     render () {
         return (
-            <div className="search">
-                <input type="shearch" className="busqueda" value={this.state.busqueda} onChange={this.onChange} />
+            <div className= "container__search">
+                <button  className="search">
+                      <img src={icon_search} />
+                    <input type="search" className="busqueda" value={this.state.busqueda} onChange={this.onChange} />
+                </button>
             </div>
             )
     }

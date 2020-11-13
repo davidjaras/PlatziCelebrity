@@ -9,7 +9,9 @@ import TopicContainer from '../components/TopicContainer';
 const Topics = () => {
     return (
         <div className="topics">
-            <h1 className="topics__title">Temas</h1>
+            <div>
+                 <h1 className="topics__title">Temas</h1>
+            </div>
             <div className="topics__content">
                 {TopicsMock.map((item, index) => {
                     console.log(item.topicIcon, typeof item.topicIcon);

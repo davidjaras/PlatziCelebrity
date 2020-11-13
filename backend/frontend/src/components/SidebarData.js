@@ -11,7 +11,7 @@ import geopolitica from '../images/geopolitica.svg';
 export const SidebarData = [
   {
     title: 'Inicio',
-    path: '/',
+    path: '/home',
     icon: <AiIcons.AiFillHome />,
     cName: 'nav-text'
   },
