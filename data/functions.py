@@ -112,12 +112,14 @@ def scrape_article_from_link(site, url_link, name_celebrity = ''):
 def get_article_info(queries, soup, name_celebrity=''):
   article_info_dict = {}
 
-  # Extract title
+  # Extract title and attach celebrity name to response
   title = validate_if_index_exists(soup.select(queries['article_title']))
   if title:
     if len(name_celebrity) == 0:
-      if not find_name(title.text.lower()):
+      name_found = find_name(title.text.lower())
+      if not name_found:
         return None
+      article_info_dict['celebrity'] = name_found
     else:
       if title.text.lower().find(name_celebrity) == -1:
         return None

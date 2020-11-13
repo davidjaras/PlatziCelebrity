@@ -1,6 +1,7 @@
 from common import config
 import functions
 import sys
+import json
 
 
 def search_celebrity(name_celebrity):
@@ -55,6 +56,7 @@ def search_all():
 if __name__ == "__main__":
 
 	name_celebrity = sys.argv[1].lower()
+	name_celebrity = name_celebrity.replace('+', ' ')
 
 	if (name_celebrity == 'all'):
 		print(json.dumps(search_all()))
