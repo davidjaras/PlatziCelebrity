@@ -23,6 +23,10 @@ def find_name(title):
   return False
 
 
+def validate_if_name_exists(name):
+  return name in names_celebrities.values()
+
+
 if __name__ == "__main__":
   title = 'llega a colombia james rodriguez'
   if find_name(title):
