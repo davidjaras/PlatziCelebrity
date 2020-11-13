@@ -31,6 +31,9 @@ def get_links_notices_site(site):
   links_articles = soup.select(_queries['homepage_article_links'])
   links_articles = [validate_link(site, link.get('href')) for link in links_articles]
 
+  if len(links_articles) > 25:
+    links_articles = links_articles[0:25]
+
   return links_articles
 
 

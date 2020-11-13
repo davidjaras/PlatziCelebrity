@@ -1,28 +1,3 @@
-
-'''
-config_sites = {
-  'news_sites':{
-      0: {
-          'name': 'BBC Mundo - Tecnología',
-          'domain': 'https://www.bbc.com',
-          'url': 'https://www.bbc.com/mundo/topics/cyx5krnw38vt',
-          'url_search': 'https://www.bbc.com/mundo/search?q=$search-name$',
-          'queries': {
-              'homepage_article_links': 'article header h3 a',
-              'search_page_article_links': 'div .hard-news-unit h3 a',
-              'article_title': 'main h1',
-              'article_body': 'main div .Paragraph-k859h4-0',
-              'article_date': 'main div time',
-              'article_author': 'main div ul .Name-sc-1dejso6-3',
-              'article_image': 'main .dXcPmb figure .cMJFwl div img',
-              'article_image_attr': 'src'
-          }
-      }
-  }
-}
-
-'''
-
 config_sites = {
   'news_sites':{
     0: {
@@ -34,10 +9,10 @@ config_sites = {
           'homepage_article_links': 'article header h3 a',
           'search_page_article_links': 'div .hard-news-unit h3 a',
           'article_title': 'main h1',
-          'article_body': 'main div .Paragraph-k859h4-0',
+          'article_body': 'main div .css-1jxihfd-Paragraph',
           'article_date': 'main div time',
-          'article_author': 'main div ul .Name-sc-1dejso6-3',
-          'article_image': 'main .dXcPmb figure .cMJFwl div img',
+          'article_author': 'main div ul .css-dvly96-Name',
+          'article_image': 'main figure .css-oijotl-ImagePlaceholder div img',
           'article_image_attr': 'src'
       }  
     },
@@ -50,10 +25,10 @@ config_sites = {
           'homepage_article_links': 'article header h3 a',
           'search_page_article_links': 'div .hard-news-unit h3 a',
           'article_title': 'main h1',
-          'article_body': 'main div .Paragraph-k859h4-0',
+          'article_body': 'main div .css-1jxihfd-Paragraph',
           'article_date': 'main div time',
-          'article_author': 'main div ul .Name-sc-1dejso6-3',
-          'article_image': 'main .dXcPmb figure .cMJFwl div img',
+          'article_author': 'main div ul .css-dvly96-Name',
+          'article_image': 'main figure .css-oijotl-ImagePlaceholder div img',
           'article_image_attr': 'src'
       } 
     },
