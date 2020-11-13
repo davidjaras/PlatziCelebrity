@@ -137,7 +137,7 @@ async function followCelebrities(id){
             WHERE celebrities.id = $1
             ORDER BY name ASC`,[a]));
         }
-        const celebrities = await db.any('SELECT DISTINCT id, name, followers FROM celebrities ORDER BY name ASC');
+        const celebrities = await db.any('SELECT DISTINCT id, name FROM celebrities ORDER BY id ASC LIMIT 60');
         return {
             status:200,
             nameCelebrity,
