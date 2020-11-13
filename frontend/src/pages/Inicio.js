@@ -13,9 +13,16 @@ class Inicio extends React.Component {
   }
 
   consultNews = () => {
-    let url = 'https://peoplenews.herokuapp.com/api/home/1'
+    let url = 'https://peoplenews.herokuapp.com/api/home/category'
+    var config = {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({
+        "category": 1
+        })
+    }
 
-    fetch(url)
+    fetch(url, config)
       .then(respuesta => {
         return respuesta.json();
       })
