@@ -1,7 +1,7 @@
 config_sites = {
   'news_sites':{
     0: {
-      'name': 'BBC Mundo - Tecnología',
+      'name': 'BBC Mundo - Tecnologia',
       'domain': 'https://www.bbc.com',
       'url': 'https://www.bbc.com/mundo/topics/cyx5krnw38vt',
       'url_search': 'https://www.bbc.com/mundo/search?q=$search-name$',
