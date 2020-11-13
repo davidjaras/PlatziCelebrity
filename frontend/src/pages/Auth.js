@@ -9,18 +9,26 @@ import Register from '../components/Register';
 
 const Auth = () => {
     const history = useHistory();
+    const URI = 'https://peoplenews.herokuapp.com/api'
 
     function handleRegister(body) {
         // console.log({body});
 
-        fetch('https://peoplenews.herokuapp.com/register', {
+        fetch(`${URI}/register`, {
             method: 'POST',
-            body
+            body: JSON.stringify(body),
+            headers: {
+                'Content-Type': 'application/json'
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
         })
-        .then(response => response.json())
+        .then(response => {
+            console.log('response :>> ', response);
+            response.json()
+        })
         .then(response => {
             console.log('sera?', response)
-            history.push("/");
+            // history.push("/");
         })
         .catch(error => {
             console.log({ error })
@@ -31,11 +39,18 @@ const Auth = () => {
     function handleLogin(body) {
         // console.log({body});
 
-        fetch('https://peoplenews.herokuapp.com/login', {
+        fetch(`${URI}/login`, {
             method: 'POST',
-            body
+            body: JSON.stringify(body),
+            headers: {
+                'Content-Type': 'application/json'
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
         })
-        .then(response => response.json())
+        .then(response => {
+            console.log('response :>> ', response);
+            response.json()
+        })
         .then(response => {
             console.log('sera?', response)
             history.push("/");
