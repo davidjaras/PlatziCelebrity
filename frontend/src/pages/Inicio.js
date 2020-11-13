@@ -8,32 +8,40 @@ class Inicio extends React.Component {
     news : []
   }
 
-  componentDidMount() {
+  constructor() {
+    super();
     this.consultNews();
   }
 
   consultNews = () => {
-    let url = 'https://peoplenews.herokuapp.com/api/home/1'
+    let url = 'https://peoplenews.herokuapp.com/api/home'
 
-     
-    fetch(url)
-      .then(respuesta => {
-        return respuesta.json();
+    fetch(url, {
+      method: 'POST',
+      body: JSON.stringify({ id: 52 }),
+      headers: {
+          'Content-Type': 'application/json'
+          // 'Content-Type': 'application/x-www-form-urlencoded',
+      },
+    })
+    .then(respuesta => {
+      return respuesta.json();
+    })
+    .then(news => {
+      console.log('news', news)
+      this.setState({
+        news
       })
-      .then(news => {
-        console.log(news)
-        this.setState({
-          news: news
-        })
-      })
+    })
   }
 
   render() {
+    console.log('this.state :>> ', this.state);
     return (
       <div className='inicio'>
         <TitleNews />
         <News 
-          news={this.state.news}
+          news={this.state.news.post}
         />
       </div>
     ); 
