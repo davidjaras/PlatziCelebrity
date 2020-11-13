@@ -1,6 +1,5 @@
 import React, { useEffect, useState }  from 'react'
 import Bookmarks from './Bookmarks'
-import Celebrities from './Celebrities'
 
 import './styles/FollowingPage.scss'
 
@@ -26,16 +25,11 @@ const FollowingPage = () => {
     return (
         <div className="container">
             <div className="switcher">
-                <span className={`switcher__celebrities ${switcher === 'celebrities' ? 'active' : ''}`} onClick={(evt) => switchTab(evt, 'celebrities')}>Celebridades</span>
+               
                 <span className={`switcher__bookmarks ${switcher === 'bookmarks' ? 'active' : ''}`} onClick={(evt) => switchTab(evt, 'bookmarks')}>Marcadores</span>
             </div>
             {
-                switcher === 'celebrities'
-                    ?
-                    <div className="container">
-                        <Celebrities />
-                    </div>
-                    :
+                
                     <div className="container">
                         <Bookmarks />
                     </div>

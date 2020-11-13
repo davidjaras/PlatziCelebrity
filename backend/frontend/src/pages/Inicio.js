@@ -23,7 +23,7 @@ const Inicio = () => {
 
     fetch(url, {
       method: 'POST',
-      body: JSON.stringify({ id: 52 }),
+      body: JSON.stringify({ id:JSON.parse(sessionStorage.getItem('userSession')).iD  }),
       headers: {
           'Content-Type': 'application/json'
       },
