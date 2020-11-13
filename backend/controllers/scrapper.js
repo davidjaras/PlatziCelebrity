@@ -3,7 +3,7 @@ const {spawn} = require('child_process');
 const scrapperModel = require('../models/scrapper');
 const path = require('path');
 const Router = express.Router();
-const pathAbsolute = path.join(__dirname, "../backend/data/scraper.py");
+const pathAbsolute = path.join(__dirname, "../data/scraper.py");
 
 
 Router.post('/all', (req, res) => {
