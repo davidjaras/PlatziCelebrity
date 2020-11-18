@@ -1,6 +1,5 @@
 import requests
 import bs4
-from common import config
 import re
 
 from names_search import find_name

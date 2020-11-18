@@ -3,8 +3,11 @@
   refers to a celebrity or not
 '''
 
-from dataset.celebrities_names_repositories import names_celebrities
+import json
 
+with open('dataset/celebrities_names_repositories.json', encoding="utf8") as file:
+  names_celebrities = json.load(file)
+  
 
 def find_name(title):
 

@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# -*- coding: <encoding name> -*-
+
 #from common import config
 from config import config_sites
 import names_search
@@ -70,4 +73,3 @@ if __name__ == "__main__":
 		print(json.dumps(search_all()))
 	else:
 		print(json.dumps(search_celebrity(name_celebrity)))
-		
