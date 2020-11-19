@@ -1,7 +1,6 @@
 #!/usr/bin/python
 # -*- coding: <encoding name> -*-
 
-#from common import config
 from config import config_sites
 import names_search
 import functions
@@ -18,7 +17,6 @@ def search_celebrity(name_celebrity):
 		return notices_articles
 
 	for i_host in range(1,4):
-		#host = config()['news_sites'][i_host]
 		host = config_sites['news_sites'][i_host]
 		notices_links = functions.get_links_notices_search(host, name_celebrity)
 
@@ -43,7 +41,6 @@ def search_all():
 	notices_articles = []
 
 	for i_host in range(5):
-		#host = config()['news_sites'][i_host]
 		host = config_sites['news_sites'][i_host]
 		notices_links = functions.get_links_notices_site(host)
 
