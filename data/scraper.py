@@ -70,6 +70,6 @@ if __name__ == "__main__":
 
 
 	if (name_celebrity == 'all'):
-		print(json.dumps(search_all()))
+		print(json.dumps(search_all(), ensure_ascii=False).encode('utf8').decode())
 	else:
-		print(json.dumps(search_celebrity(name_celebrity)))
+		print(json.dumps(search_celebrity(name_celebrity), ensure_ascii=False).encode('utf8').decode())
