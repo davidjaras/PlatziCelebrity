@@ -78,8 +78,6 @@ def validate_link(site, link):
 '''
   Make request to link article and get information
 '''
-
-
 def scrape_article_from_link(site, url_link, name_celebrity = ''):
   _queries = site['queries']
   #print(f'DEBUG: LINK TO SCRAPE: {url_link}')
@@ -128,6 +126,8 @@ def get_article_info(queries, soup, name_celebrity=''):
       #this if for particular search. Validate if title contains name that is been search
       if title.text.lower().find(name_celebrity) == -1:
         return None
+      article_info_dict['celebrity'] = ''
+      article_info_dict['category'] = ''
     article_info_dict['title'] = title.text
   else:
     article_info_dict['title'] = None

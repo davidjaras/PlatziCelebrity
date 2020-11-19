@@ -13,7 +13,9 @@ def search_celebrity(name_celebrity):
 	notices_links_count = 0
 	notices_articles = []
 
-	if not names_search.validate_if_name_exists(name_celebrity):
+	#validate if name to search is in repository of names
+	name_found, category_found = names_search.find_name_celebrity(name_celebrity)
+	if not name_found:
 		return notices_articles
 
 	for i_host in range(1,4):
@@ -28,6 +30,8 @@ def search_celebrity(name_celebrity):
 		for i_notice_link in notices_links:
 			scraped_link = functions.scrape_article_from_link(host, i_notice_link, name_celebrity)
 			if scraped_link:
+				scraped_link['celebrity'] = name_found
+				scraped_link['category'] = category_found
 				notices_articles.append(scraped_link)
 
 	#print(f'LINKS COUNT: {notices_links_count}')
