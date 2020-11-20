@@ -9,7 +9,7 @@ async function data (url){
         })
         .then(async res =>{
             let a = await res.json();
-            //console.log(a);
+            console.log(a);
             for(let i = 0; i<a.length; i++){
                 if(a[i].title!= null){
                     let {id}= await idCelebrity(a[i].celebrity);
@@ -40,7 +40,7 @@ async function data (url){
             }
         })
     .catch(error =>{
-        //console.error(error);
+        console.warn(error);
         return {status: 400}
     })
 }
@@ -50,7 +50,7 @@ async function idCelebrity (name){
     try{
         return await db.one(`SELECT id FROM celebrities WHERE name ILIKE '${name}'`)
     }catch(error){
-        console.error(error)
+        console.warn(error)
     }
 }
 //Search if a notice did register already
