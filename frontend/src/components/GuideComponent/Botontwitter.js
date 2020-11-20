@@ -2,19 +2,21 @@ import React from 'react';
 import twitter from './imagen/twitter.png';
 import './styles/botontwitter.css';
 
-
+// TODO:
+// Use CamelCase for Classes
+// Use Classes or functions
 
 class Botontwitter extends React.Component{
     render(){
         return (
-            <div> 
-               <div className = 'container__boton-twitter'>             
+            <div>
+               <div className = 'container__boton-twitter'>
                  <button className = 'boton__twitter'>
                     <img src={twitter} alt=""/>
                       <a href="">
-                        <p>Seguir con Twitter </p> 
-                      </a> 
-                </button>  
+                        <p>Seguir con Twitter </p>
+                      </a>
+                </button>
              </div>
           </div>
         )

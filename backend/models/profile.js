@@ -2,10 +2,11 @@ const {db} = require('../store/database');
 
 async function query(id) {
     try{
-        var dataUser = await db.any('SELECT first_name, last_name, email FROM users WHERE id = $1', [id]);//all data of user  
+        // var, const, let?
+        var dataUser = await db.any('SELECT first_name, last_name, email FROM users WHERE id = $1', [id]);//all data of user
         const post = await db.any('SELECT post_id FROM users_post WHERE user_id = $1', [id]);//all data of post saved
         let ctg = await db.any('SELECT categories_id FROM users_categories WHERE user_id = $1', [id]);//categories that the person follow
-        
+
         //confirm that user exist
         if(Object.entries(dataUser).length == 0){
             var dataUser = "the user don't exist"
@@ -17,7 +18,7 @@ async function query(id) {
             categoriesId.push(values.categories_id);
         });
         for(let i=0; i<= categoriesId.length; i++){
-            
+
             if(categoriesId.length == 0){
                 nameCategory.push("you don't have any category active in this moment");
             } else {
@@ -64,8 +65,9 @@ async function query(id) {
         throw new Error ('we has problems bring all data');
 
     }
+    // this code is break?
     bringCategories(ctg);
-    
+
     return {
         dataUser,
         post,
@@ -78,7 +80,7 @@ async function query(id) {
 async function postCategory(id, values){
     try{
         const idCategory = values;
-        await db.none(`INSERT INTO users_categories (user_id, categories_id) 
+        await db.none(`INSERT INTO users_categories (user_id, categories_id)
         VALUES($1, $2)`, [ id, idCategory[0]]);
     return {
         message: "category updated"
@@ -98,7 +100,7 @@ async function deleteCategory(id, values) {
         idRegister.map(function (element){
             specificId.push(element.id)
         })
-        // bring the ids categories of every register 
+        // bring the ids categories of every register
         let categoryDelete = [];
         for(i = 0; i < specificId.length; i++){
             const idCategory = await db.any('SELECT categories_id FROM users_categories WHERE id = $1', [specificId[i]])

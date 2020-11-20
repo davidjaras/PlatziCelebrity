@@ -5,11 +5,13 @@ import iconMarker from  '../images/marcadores.svg'
 import iconFav from  '../images/favoritos.svg'
 
 function Card(props) {
+    // TODO:
+    // Avoid console.logs on prod
     console.log(props)
 
     const { title, content, source, date_ } = props.card;
     const[category,setCategory] = useState('Mi Categoría');
-    
+
     return (
         <div className="card">
             <div className="card__info">

@@ -12,6 +12,8 @@ const FollowingPage = () => {
     function switchTab(evt, selected) {
         evt.preventDefault();
         setSwitcher(selected);
+        // TODO:
+        // Avoid console.log
         console.log('epa', selected, switcher)
     }
 

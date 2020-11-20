@@ -4,7 +4,8 @@ import './styles/TitleNews.css'
 function TitleNews() {
     return (
         <div className="title">
-            <h1>Para ti</h1> 
+            <h1>Para ti</h1>
+            {/* errata */}
             <p>Recomiendaciones basadas en tus intereses...</p>
         </div>
     )

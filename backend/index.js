@@ -9,7 +9,7 @@ const profileController = require('./controllers/profile');
 const loginController = require('./controllers/login');
 const scrapperController = require('./controllers/scrapper');
 
-
+// CORS?
 
 app.use(bodyParser.json());
 app.get('/', function (req, res, next){

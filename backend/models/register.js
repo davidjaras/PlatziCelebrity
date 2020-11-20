@@ -3,7 +3,7 @@ const {db} = require('../store/database');
 //register user
 async function postUser (values){
     try {
-    await db.result(`INSERT INTO users (first_name, last_name, email, password_, level_id) 
+    await db.result(`INSERT INTO users (first_name, last_name, email, password_, level_id)
     VALUES($1,$2, $3, $4, 2)`,
     [
         values.first_name,
@@ -28,6 +28,7 @@ async function postCategory(values, id){
         if(Object.entries(values).length === 0){
             return "please completed all fields to register page";
         } else {
+            // Explain me...
             if(values.entretainment == true){
                 await db.result(`INSERT INTO users_categories (user_id, categories_id)
                 VALUES ($1, $2)`, [id, 1 ]);

@@ -9,15 +9,17 @@ async function query (id){
         data.map( function (element){
             idCategory.push(element.categories_id);
         });
+        // Use promise.all
+        // Use ORM?
         for (let i = 0; i <= idCategory.length; i++){
             let value = idCategory[i];
             post.push( await db.any(`SELECT DISTINCT users_categories.categories_id,
             post_categories.post_id, post.title, post.content, post.source, post.views_, post.date_, post.image
-            FROM 
+            FROM
             users_categories INNER JOIN post_categories ON(users_categories.categories_id = post_categories.categories_id)
             INNER JOIN post ON(post.id = post_categories.post_id)
             WHERE post_categories.categories_id = $1
-            GROUP BY 
+            GROUP BY
             users_categories.categories_id,
             post_categories.post_id, post.title, post.content, post.source, post.views_, post.date_, post.image
             ORDER BY post.date_ DESC
@@ -31,5 +33,5 @@ async function query (id){
 
 module.exports = {
     query
-    
+
 }

@@ -2,6 +2,9 @@ import React from 'react';
 
 import './styles/Search.css'
 
+// TODO:
+// Use Class or functions
+
 class Search extends React.Component {
     state={
         busqueda: ''
