@@ -9,7 +9,6 @@ async function data (url){
         })
         .then(async res =>{
             let a = await res.json();
-            console.log(a);
             for(let i = 0; i<a.length; i++){
                 if(a[i].title!= null){
                     let {id}= await idCelebrity(a[i].celebrity);
@@ -105,7 +104,56 @@ async function posts(name){
         console.error(error);
     }
 }
+// insert post
+async function all(url){
+    await fetch(url,{
+        method:'GET',
+        headers:{
+        'Content-Type': 'application/json'
+        },
+    })
+    .then(async res =>{
+        let a = await res.json();
+        console.log(a);
+        for(let i = 0; i<a.length; i++){
+            if(a[i].title!= null){
+                let {id}= await idCelebrity(a[i].celebrity);
+                let title = await registeredPost(a[i].title);
+                let category = await categoryId(a[i].category);
+                if(a[i].title != title){
+                    let idPost = await db.any(`INSERT INTO public.post(title, content, source, views_, date_, image)
+                        VALUES ($1,$2,$3,$4,$5,$6) RETURNING id`,[
+                            a[i].title,
+                            a[i].content,
+                            a[i].source,
+                            1,
+                            a[i].date,
+                            a[i].image,
+                    ]);
+                    await db.none(`INSERT INTO public.post_celebrities(post_id, celebrity_id)
+                        VALUES ($1, $2)`, [
+                            idPost[0].id,
+                            id,
+                    ]);
+                    await db.none(`INSERT INTO public.post_categories(post_id, categories_id)
+                        VALUES ($1,$2)`, [
+                            idPost[0].id,
+                            category
+                    ])
+                }
+            }   
+        }
+    })
+.catch(error =>{
+    console.error(error);
+    return {
+        status: 400,
+        message:"post did not inserted"
+    }
+})
+}
 module.exports = {
     data,
     posts,
+    all,
 }

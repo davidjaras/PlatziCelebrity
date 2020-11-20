@@ -4,7 +4,6 @@ const bcrypt = require('bcrypt');
 //register user
 async function postUser (values){
     try {
-        console.log(values);
         if(Object.entries(values).length === 0){
             return "please completed all fields to register page";
         } else {
