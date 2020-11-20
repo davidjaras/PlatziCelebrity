@@ -18,7 +18,7 @@ def main_test():
 
 	# get links in search site to scrape
 	#notices_links = functions.get_links_notices_search(host)
-	
+
 	# print(notices_links)
 
 	# test get article elements
@@ -31,6 +31,7 @@ def search_celebrity(name_celebrity):
 	notices_links_count = 0
 	notices_articles = []
 
+  # Why?
 	for i_host in range(1,4):
 		host = config()['news_sites'][i_host]
 		notices_links = functions.get_links_notices_search(host, name_celebrity)
@@ -51,6 +52,7 @@ def search_all():
 	notices_links_count = 0
 	notices_articles = []
 
+	# Why?
 	for i_host in range(5):
 		host = config()['news_sites'][i_host]
 		notices_links = functions.get_links_notices_site(host)
@@ -60,7 +62,7 @@ def search_all():
 			scraped_link = functions.scrape_article_from_link(host, i_notice_link)
 			if scraped_link:
 				notices_articles.append(scraped_link)
-	
+
 	print(f'LINKS COUNT: {notices_links_count}')
 	print(f'ARTICLES SCRAPED COUNT: {len(notices_articles)}')
 	print(notices_articles)
@@ -69,8 +71,8 @@ def search_all():
 	# también recuerda formatear las fechas de las noticias
 	# también adecua el script para busquedas particulares
 	# y por ultimo implementa el arg parse para la llamada del scritp
-	# 
-		
+	#
+
 
 
 if __name__ == "__main__":

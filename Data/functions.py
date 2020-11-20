@@ -22,11 +22,11 @@ def get_links_notices_site(site):
   except Exception as e:
     print('Error: ', e)
     return None
-  
+
   if response.status_code != 200:
     print('Status code: ', response.status_code)
     return None
-  
+
   soup = bs4.BeautifulSoup(response.text, 'html.parser')
   links_articles = soup.select(_queries['homepage_article_links'])
   links_articles = [validate_link(site, link.get('href')) for link in links_articles]
@@ -40,7 +40,7 @@ def get_links_notices_site(site):
 def get_links_notices_search(site, name_celebrity):
   _queries = site['queries']
   _url = site['url_search']
-  
+
   name_celebrity = name_celebrity.replace(' ', '+')
   _url = _url.replace('$search-name$', name_celebrity)
 
@@ -91,12 +91,13 @@ def scrape_article_from_link(site, url_link, name_celebrity = ''):
     print("Error request URL: ", url_link)
     print(e)
     return None
-  
+
   if article.status_code != 200:
     print('Error getting URL: ', url_link)
+    # Where is nota?
     print('status code = ', nota.status_code)
     return None
-  
+
   article_soup = bs4.BeautifulSoup(article.text, 'html.parser')
   article_info_dict = get_article_info(_queries, article_soup, name_celebrity)
 
@@ -131,16 +132,16 @@ def get_article_info(queries, soup, name_celebrity=''):
     article_info_dict['date'] = date_.get('datetime')
     if  article_info_dict['date'] == None:
       article_info_dict['date'] = date_.text
-  else: 
+  else:
     article_info_dict['date'] = None
-  
+
   # Extract author
   author = validate_if_index_exists(soup.select(queries['article_author']))
   if author:
     article_info_dict['author'] = author.text
   else:
     article_info_dict['author'] = None
-  
+
   # Extract body
   body = soup.select(queries['article_body'])
   if body:
@@ -150,7 +151,7 @@ def get_article_info(queries, soup, name_celebrity=''):
     article_info_dict['content'] = body_article
   else:
     article_info_dict['content'] = None
-  
+
   # Extract Image
   try:
     image = soup.select(queries['article_image'])[0].attrs[queries['article_image_attr']]
@@ -160,9 +161,9 @@ def get_article_info(queries, soup, name_celebrity=''):
       article_info_dict['image'] = None
   except IndexError as e:
     article_info_dict['image'] = None
-  
+
   return article_info_dict
-    
+
 
 '''
   Validate if soup in index exists

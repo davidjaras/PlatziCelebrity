@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import './styles/input.css';
 
-
+// TODO:
+// Comments are not but in code production
 
 //  class InicioSesion extends React.Component{
 //      state = {}
@@ -15,7 +16,7 @@ import './styles/input.css';
 //          console.log(this.state)
 //      }
 //      render(){
-         
+
 //      }
 //  }
 
@@ -24,25 +25,25 @@ const InicioSesion = ({ handleLogin }) => {
     const [ email, setEmail ] = useState('')
     const [ password, setPassword ] = useState('')
 
-    return(  
+    return(
         <div className = "container__input">
             <p>Inicio de sesión</p>
             <form >
                 <div>
-                   <input onChange={e => setEmail(e.target.value)} 
-                    className = "input__correo" 
-                    type="email" 
-                    placeholder ='correo eletronico' 
+                   <input onChange={e => setEmail(e.target.value)}
+                    className = "input__correo"
+                    type="email"
+                    placeholder ='correo eletronico'
                     name="email"
                     value={ email } />
-                    
-                   <input onChange = {e => setPassword(e.target.value)} 
+
+                   <input onChange = {e => setPassword(e.target.value)}
                    className = "input__contraseña"
-                    placeholder = 'contraseña' 
+                    placeholder = 'contraseña'
                     type="password"
-                    name="password" 
+                    name="password"
                     value = { password } />
-                    
+
                 </div>
                 <input onClick={e => handleLogin({
                     email,

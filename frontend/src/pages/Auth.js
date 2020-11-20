@@ -14,6 +14,9 @@ const Auth = () => {
     function handleRegister(body) {
         // console.log({body});
 
+        // TODO:
+        // The API should be a global var
+
         fetch('https://peoplenews.herokuapp.com/register', {
             method: 'POST',
             body
@@ -32,6 +35,8 @@ const Auth = () => {
     function handleLogin(body) {
         // console.log({body});
 
+        // TODO:
+        // The API should be a global var
         fetch('https://peoplenews.herokuapp.com/login', {
             method: 'POST',
             body
