@@ -1,0 +1,59 @@
+@import '../../scss/colors';
+
+.profile {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 100px 0 0 0;
+    // margin-bottom: 5rem;
+    // margin-top: 5rem;
+
+    &__divider {
+        width: 69%;
+        border: 2px solid $blue-dark;
+
+    }
+
+    &__info {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 5rem;
+
+
+        a {
+            color: $blue-dark;
+            text-decoration: none;
+        }
+
+        h1 {
+            color: $blue-dark;
+            font-size: 32px;
+            padding: 1rem;
+        }
+
+        img {
+            width: 156px;
+            border-radius: 50%;
+        }
+
+        p {
+            color: $grey-mid;
+            margin-bottom: 1rem;
+        }
+    }
+
+    &__summary {
+        text-align: center;
+        color: $blue-dark;
+        font-size: 26px;
+// <<<<<<< HEAD
+        font-weight: 600;
+        
+
+        font-weight: 700;
+        width: 50%;
+// >>>>>>> 6a15400539df8136d52a262086d8b833e9bcfdd9
+    }
+}

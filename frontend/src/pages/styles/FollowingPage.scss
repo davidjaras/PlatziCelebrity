@@ -1,0 +1,21 @@
+@import '../../scss/colors';
+
+.switcher {
+    border-bottom: 1px solid $blue-dark;
+    color: $blue-dark;
+    font-size: 24px;
+    margin-top: 5rem;
+    width: 70%;
+    margin-left: 190px;
+    
+
+
+    span:first-child {
+        margin-right: 1rem;
+    }
+}
+
+.active {
+    border-bottom: 4px solid $blue-dark;
+    font-weight: 700;
+}
