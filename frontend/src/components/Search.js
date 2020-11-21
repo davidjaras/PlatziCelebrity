@@ -11,7 +11,6 @@ class Search extends React.Component {
     onChange=async e=>{
         e.persist();
         await this.setState({busqueda: e.target.value})
-        console.log(this.state.busqueda);
     }
 
     render () {
