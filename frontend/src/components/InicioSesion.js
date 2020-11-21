@@ -1,24 +1,6 @@
 import React, { useState } from 'react';
 import './styles/input.css';
 
-
-
-//  class InicioSesion extends React.Component{
-//      state = {}
-//      handlechange = (e)=>{
-//          console.log({
-//              name:e.target.name,
-//              valeu:e.target.value})
-//      }
-//      handleClick = (e)=>{
-//          console.log('this was click')
-//          console.log(this.state)
-//      }
-//      render(){
-         
-//      }
-//  }
-
 const InicioSesion = ({ handleLogin }) => {
 
     const [ email, setEmail ] = useState('')

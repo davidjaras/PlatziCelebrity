@@ -34,7 +34,6 @@ const Celebrities = () => {
           return respuesta.json();
         })
         .then(response => {
-          console.log('news', response)
           console.log(response.nameCelebrity.flat())
           setNews(response)
         })

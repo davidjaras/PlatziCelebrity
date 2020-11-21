@@ -12,7 +12,6 @@ const Auth = () => {
     const URI = 'https://peoplenews.herokuapp.com/api'
 
     function handleRegister(body) {
-        // console.log({body});
 
         fetch(`${URI}/register`, {
             method: 'POST',
@@ -24,7 +23,6 @@ const Auth = () => {
         })
         .then(response => response.json())
         .then(response => {
-            console.log('sera?', response)
             sessionStorage.setItem('userSession', JSON.stringify(response))
             setTimeout(() => {
                 history.push("/");
@@ -37,7 +35,6 @@ const Auth = () => {
     }
 
     function handleLogin(body) {
-        // console.log({body});
 
         fetch(`${URI}/login`, {
             method: 'POST',
@@ -48,7 +45,6 @@ const Auth = () => {
         })
         .then(response => response.json())
         .then(response => {
-            console.log('sera?', response)
             sessionStorage.setItem('userSession', JSON.stringify(response))
             history.push("/home");
         })

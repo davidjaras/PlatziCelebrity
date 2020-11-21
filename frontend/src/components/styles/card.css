@@ -39,3 +39,10 @@ h2 {
     color: #0C5991;
     margin-top: 10px;
 }
+
+.card__content {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+}

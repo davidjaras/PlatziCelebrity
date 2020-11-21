@@ -8,7 +8,7 @@ import { IconContext } from 'react-icons';
 import peopleLogo from '../images/logo.svg';
 import Search from './Search';
 
-function Navbar() {
+function Navbar({ setNews }) {
   const [sidebar, setSidebar] = useState(false);
 
   const showSidebar = () => setSidebar(!sidebar);
@@ -25,7 +25,7 @@ function Navbar() {
               <img className="logo" src={peopleLogo}></img>
             </Link>
           </div>
-          <Search />
+          <Search setNews={setNews} />
           <div className="perfil-link">
 
             <img

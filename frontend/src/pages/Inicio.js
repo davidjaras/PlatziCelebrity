@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import News from '../components/News';
 import TitleNews from '../components/TitleNews';
+import Menu from '../components/Menu'
 
 import { useHistory } from 'react-router-dom';
 
@@ -32,18 +33,21 @@ const Inicio = () => {
       return respuesta.json();
     })
     .then(response => {
-      console.log('news', response)
+      console.log('respose inicial', response, setNews)
       setNews(response)
     })
   }
 
   return(
-    <div className='inicio'>
-      <TitleNews />
-      <News 
-        news={news.post}
-      />
-    </div>
+    <>
+      <Menu setNews={setNews} />
+      <div className='inicio'>
+        <TitleNews />
+        <News 
+          news={news.post}
+        />
+      </div>
+    </>
   )
 }
 
