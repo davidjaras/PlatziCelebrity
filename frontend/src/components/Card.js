@@ -9,6 +9,8 @@ function Card(props) {
 
     const { title, content, source, date_ } = props.card;
     const[category,setCategory] = useState('Mi Categoría');
+
+    const newsDate = new Date(date_)
     
     const saveBookmark = () => {
       let url = 'https://peoplenews.herokuapp.com/api/home/bookmarks'
@@ -32,14 +34,15 @@ function Card(props) {
         <div className="card">
             <div className="card__info">
                 <h2> { title } </h2>
-                <p> { content } </p>
-                <p className="card__info-source"> { source } • { date_ } </p>
+                <p className="card__content"> { content } </p>
+                <a className="card__info-source" href={source} target="_blank">Ir a la noticia</a>
+                <p>Fecha publicacion: { newsDate.toLocaleDateString() }</p>
             </div>
             <div className="card__info-icon">
                 <p> { category } </p>
                 <figure>
-                    <img src={ iconShare }></img>
-                    <img src={ iconMarker }></img>
+                    {/* <img src={ iconShare }></img>
+                    <img src={ iconMarker }></img> */}
                     <img src={ iconFav } onClick={saveBookmark} ></img>
                 </figure>
             </div>
