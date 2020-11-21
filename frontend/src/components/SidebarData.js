@@ -22,7 +22,7 @@ export const SidebarData = [
     cName: 'nav-text'
   },
   {
-    title: 'techlogia',
+    title: 'Tecnologia',
     path: '/techlogia',
     icon: <img src={tech}></img>,
     cName: 'nav-text'
