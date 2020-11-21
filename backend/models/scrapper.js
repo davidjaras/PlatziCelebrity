@@ -76,7 +76,7 @@ async function categoryId(category){
 }
 async function posts(name){
     try{
-        let posts = [];
+        let post = [];
         let idPost = [];
         let {id}= await idCelebrity(name)
         const specificId = await db.any(`SELECT DISTINCT post_celebrities.post_id
@@ -88,7 +88,7 @@ async function posts(name){
         });
         for (let i = 0; i < idPost.length; i++){
             let value = idPost[i];
-            posts.push(await db.any(`SELECT DISTINCT post_celebrities.post_id, post.title, post.content, post.source, post.views_, post.date_, post.image
+            post.push(await db.any(`SELECT DISTINCT post_celebrities.post_id, post.title, post.content, post.source, post.views_, post.date_, post.image
             FROM 
             post_celebrities INNER JOIN post ON(post.id = post_celebrities.post_id)
             WHERE post_celebrities.post_id = $1
@@ -98,7 +98,7 @@ async function posts(name){
         }
         return {
             status:200,
-            posts,
+            post,
         }
     }catch(error){
         console.error(error);
