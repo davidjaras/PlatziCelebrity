@@ -34,7 +34,6 @@ const ProfilePage = () => {
           return respuesta.json();
         })
         .then(response => {
-          console.log('news', response.dataUser[0].first_name)
           setState(response)
         })
       }

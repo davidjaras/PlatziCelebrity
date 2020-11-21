@@ -36,9 +36,7 @@ const Bookmarks = () => {
           return respuesta.json();
         })
         .then(response => {
-          console.log('bookmarks', response)
           const flatBookmarks = response.dataBookMarkets.flat()
-          console.log('flat', flatBookmarks);
           setBookmarks(flatBookmarks)
         })
       }

@@ -5,7 +5,6 @@ import Card from '../components/Card';
 class News extends Component {
     
     render(){
-        console.log('this.props :>> ', this.props);
         if (!(!!this.props.news)) {
             return (<div>loading</div>)
         } else {

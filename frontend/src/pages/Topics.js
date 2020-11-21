@@ -14,7 +14,6 @@ const Topics = () => {
             </div>
             <div className="topics__content">
                 {TopicsMock.map((item, index) => {
-                    console.log(item.topicIcon, typeof item.topicIcon);
                     const icon = require(`../images/${item.topicIcon}.svg`).default
                     return (
                         <TopicContainer
