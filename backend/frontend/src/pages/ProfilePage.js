@@ -4,6 +4,8 @@ import Bookmarks from './Bookmarks';
 import './styles/ProfilePage.scss'
 import Topics from './Topics';
 
+import Menu from '../components/Menu'
+
 import { useHistory } from 'react-router-dom';
 
 const ProfilePage = () => {
@@ -34,24 +36,27 @@ const ProfilePage = () => {
           return respuesta.json();
         })
         .then(response => {
-          console.log('news', response.dataUser[0].first_name)
+          console.log('usuario', response)
           setState(response)
         })
       }
 
     return (
+      <>
+        <Menu />
         <div className="profile container">
             <div className="profile__info">
                 <img src="https://s.gravatar.com/avatar/2820b257689e2df23580a62d570c7be9?s=80" alt="User Pic" />
                 <h1>{state.dataUser[0].first_name}</h1>
-                <p>Fotográfa apasionada por la tecnología y el deporte</p>
+                <p>Fotografo apasionado por la tecnología y el deporte</p>
                 <a href="#">{state.dataUser[0].email}</a>
             </div>
             <h2 className="profile__summary">RESUMEN</h2>
             <hr className="profile__divider" />
-            <Topics />
+            <Topics categories={state.nameCategory} />
             <Bookmarks />
         </div>
+      </>
     )
 }
 

@@ -5,7 +5,7 @@ function TitleNews() {
     return (
         <div className="title">
             <h1>Para ti</h1> 
-            <p>Recomiendaciones basadas en tus intereses...</p>
+            <p>Recomendaciones basadas en tus intereses...</p>
         </div>
     )
 }

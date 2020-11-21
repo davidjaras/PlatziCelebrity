@@ -2,6 +2,8 @@ import React from 'react';
 import {useState,useEffect} from 'react';
 import News from '../components/News';
 
+import Menu from '../components/Menu'
+
 import { useHistory } from 'react-router-dom';
 
 function Entretenimiento() {
@@ -40,9 +42,12 @@ function Entretenimiento() {
   }
 
   return (
-    <div className='inicio'>
-      <News news={state.post} />
-    </div>
+    <>
+      <Menu />
+      <div className='inicio'>
+        <News news={state.post} />
+      </div>
+    </>
   );
 }
 
