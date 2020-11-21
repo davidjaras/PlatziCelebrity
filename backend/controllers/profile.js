@@ -8,14 +8,14 @@ router.post('/', async function(req, res) {
       res.status(result.status).json(result);  
 });
 //active a category
-router.post('/category', async function(req, res) {
+router.post('/categoryPost', async function(req, res) {
       const id = req.body.id
       const category = req.body.category;
       const result = await profileModel.postCategory(id, category);
       res.status(result.status).json(result);
 });
 //desactive a category
-router.delete('/category', async function(req, res) {
+router.delete('/categoryDelete', async function(req, res) {
       const id = req.body.id
       const category = req.body.category;
       const result = await profileModel.removeCategory(id, category);
@@ -28,14 +28,14 @@ router.post('/celebrities', async function(req, res) {
       res.status(result.status).json(result);
 });
 //follow a celebrity
-router.post('/follow/celebrities', async function(req, res) {
+router.post('/follow/celebritiesPost', async function(req, res) {
       const id = req.body.id;
       const idCelebrity = req.body.celebrity;
       const result = await profileModel.postCelebrity(id, idCelebrity);
       res.status(result.status).json(result);
 });
 //unfollow a celebrity
-router.delete('/follow/celebrities', async function(req, res) {
+router.delete('/follow/celebritiesDelete', async function(req, res) {
       const id = req.body.id;
       const idCelebrity = req.body.celebrity;
       const result = await profileModel.removeCelebrity(id, idCelebrity);
