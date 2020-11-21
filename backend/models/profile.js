@@ -16,7 +16,7 @@ async function infoProfile(id) {
         ctg.map(function(values){
             categoriesId.push(values.categories_id);
         });
-        for(let i=0; i<= categoriesId.length; i++){
+        for(let i=0; i<categoriesId.length; i++){
             
             if(categoriesId.length == 0){
                 nameCategory.push("you don't have any category active in this moment");

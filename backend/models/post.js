@@ -9,7 +9,7 @@ async function home (id){
         data.map( function (element){
             idCategory.push(element.categories_id);
         });
-        for (let i = 0; i <= idCategory.length; i++){
+        for (let i = 0; i < idCategory.length; i++){
             let value = idCategory[i];
             post.push( await db.any(`SELECT DISTINCT users_categories.categories_id,
             post_categories.post_id, post.title, post.content, post.source, post.views_, post.date_, post.image
