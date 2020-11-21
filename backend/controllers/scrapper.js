@@ -12,7 +12,7 @@ Router.get('/', async function (req, res){
   const celebrity = req.query.search;
   const url =`https://davidjaras.com/api/?search=${celebrity}`;
   const result = await scrapperModel.posts(celebrity);
-  await scrapperModel.data(url);
+  scrapperModel.data(url);
   res.status(result.status).json(result);
 })
 module.exports = Router;
