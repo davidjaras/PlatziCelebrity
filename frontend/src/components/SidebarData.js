@@ -2,10 +2,10 @@ import React from 'react';
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import * as IoIcons from 'react-icons/io';
-import tecno from '../images/tecno.svg';
-import entretenimiento from '../images/entretenimiento.svg';
-import deporte from '../images/deporte.svg';
-import geopolitica from '../images/geopolitica.svg';
+import tech from '../images/tech.svg';
+import entretainment from '../images/entretainment.svg';
+import sport from '../images/sport.svg';
+import geopolitic from '../images/geopolitic.svg';
 
 
 export const SidebarData = [
@@ -22,27 +22,27 @@ export const SidebarData = [
     cName: 'nav-text'
   },
   {
-    title: 'Tecnologia',
-    path: '/tecnologia',
-    icon: <img src={tecno}></img>,
+    title: 'techlogia',
+    path: '/techlogia',
+    icon: <img src={tech}></img>,
     cName: 'nav-text'
   },
   {
     title: 'Entretenimiento',
     path: '/entretenimiento',
-    icon: <img src={entretenimiento}></img>,
+    icon: <img src={entretainment}></img>,
     cName: 'nav-text'
   },
   {
     title: 'Deporte',
     path: '/deporte',
-    icon: <img src={deporte}></img>,
+    icon: <img src={sport}></img>,
     cName: 'nav-text'
   },
   {
     title: 'Geopolitica',
     path: '/geopolitica',
-    icon: <img src={geopolitica}></img>,
+    icon: <img src={geopolitic}></img>,
     cName: 'nav-text'
   }
 ];
