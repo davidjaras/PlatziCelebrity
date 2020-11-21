@@ -16,8 +16,8 @@ export const SidebarData = [
     cName: 'nav-text'
   },
   {
-    title: 'Siguiendo',
-    path: '/siguiendo',
+    title: 'Marcadores',
+    path: '/marcadores',
     icon: <IoIcons.IoIosStar />,
     cName: 'nav-text'
   },

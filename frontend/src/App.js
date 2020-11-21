@@ -68,7 +68,7 @@ function App() {
       <Route path='/' exact component={Auth} />
         <Switch>
           <Route path='/home' component={Inicio} />
-          <Route path='/siguiendo' component={FollowingPage} />
+          <Route path='/marcadores' component={FollowingPage} />
           <Route path='/tecnologia' component={Tecnologia} />
           <Route path='/entretenimiento' component={Entretenimiento} />
           <Route path='/deporte' component={Deporte} />

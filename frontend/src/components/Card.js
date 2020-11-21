@@ -46,7 +46,7 @@ function Card(props) {
                     {/* <img src={ iconShare }></img>
                     <img src={ iconMarker }></img>
                     <img src={ iconFav } onClick={saveBookmark} ></img> */}
-                    <FontAwesomeIcon icon={faStar} style={{ color: '#0C5991' }} />
+                    <FontAwesomeIcon icon={faStar} style={{ color: '#0C5991' }} onClick={saveBookmark} />
                 </figure>
             </div>
         </div>

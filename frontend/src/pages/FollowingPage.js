@@ -3,6 +3,8 @@ import Bookmarks from './Bookmarks'
 
 import './styles/FollowingPage.scss'
 
+import Menu from '../components/Menu'
+
 import { useHistory } from 'react-router-dom';
 
 const FollowingPage = () => {
@@ -23,18 +25,19 @@ const FollowingPage = () => {
     }
 
     return (
-        <div className="container">
-            <div className="switcher">
-               
+        <>
+            <Menu />
+            <div className="container">
+                <div className="switcher">      
                 <span className={`switcher__bookmarks ${switcher === 'bookmarks' ? 'active' : ''}`} onClick={(evt) => switchTab(evt, 'bookmarks')}>Marcadores</span>
-            </div>
-            {
-                
+                </div>
+                {
                     <div className="container">
                         <Bookmarks />
                     </div>
-            }
-        </div>
+                }
+            </div>
+        </>
     )
 }
 
