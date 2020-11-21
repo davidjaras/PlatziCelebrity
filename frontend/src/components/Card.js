@@ -4,6 +4,8 @@ import iconShare from  '../images/compartir.svg'
 import iconMarker from  '../images/marcadores.svg'
 import iconFav from  '../images/favoritos.svg'
 import Bookmarks from '../pages/Bookmarks';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 function Card(props) {
 
@@ -42,8 +44,9 @@ function Card(props) {
                 <p> { category } </p>
                 <figure>
                     {/* <img src={ iconShare }></img>
-                    <img src={ iconMarker }></img> */}
-                    <img src={ iconFav } onClick={saveBookmark} ></img>
+                    <img src={ iconMarker }></img>
+                    <img src={ iconFav } onClick={saveBookmark} ></img> */}
+                    <FontAwesomeIcon icon={faStar} style={{ color: '#0C5991' }} />
                 </figure>
             </div>
         </div>
