@@ -4,7 +4,7 @@ config_sites = {
       'name': 'BBC Mundo - Tecnologia',
       'domain': 'https://www.bbc.com',
       'url': 'https://www.bbc.com/mundo/topics/cyx5krnw38vt',
-      'url_search': 'https://www.bbc.com/mundo/search?q=$search-name$',
+      'url_search': None,
       'queries': {
           'homepage_article_links': 'article header h3 a',
           'search_page_article_links': 'div .hard-news-unit h3 a',
@@ -68,7 +68,7 @@ config_sites = {
       'name': 'E Online',
       'domain': 'https://www.eonline.com',
       'url': 'https://www.eonline.com/co/news',
-      'url_search': '',
+      'url_search': None,
       'queries': {
           'homepage_article_links': '.content-item .column a',
           'article_title': '.column .article-detail__title',
