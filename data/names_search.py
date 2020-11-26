@@ -23,7 +23,6 @@ def find_name(title):
 
 
 def find_name_celebrity(name_to_search):
-  print(name_to_search)
   for register in names_celebrities:
 
     name = names_celebrities[register]['name']
@@ -35,30 +34,5 @@ def find_name_celebrity(name_to_search):
   return False, False
 
 
-def old_find_name(title):
-
-  for celebrity in names_celebrities:
-
-    name = names_celebrities[celebrity]
-
-    if len(name) <= 5:
-      continue
-
-    is_any_famous_in_title = title.find(name)
-    if is_any_famous_in_title != -1:
-      #return True
-      return name
-
-  return False
-
-
-def old_validate_if_name_exists(name):
-  return name in names_celebrities.values()
-
-
 if __name__ == "__main__":
-  title = 'llega a colombia james rodriguez'
-  if find_name(title):
-    print('found')
-  else:
-    print('not found')
+  pass

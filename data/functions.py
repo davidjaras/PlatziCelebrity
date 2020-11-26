@@ -19,11 +19,9 @@ def get_links_notices_site(site):
   try:
     response = requests.get(_url)
   except Exception as e:
-    #print('Error: ', e)
     return None
   
   if response.status_code != 200:
-    #print('Status code: ', response.status_code)
     return None
   
   soup = bs4.BeautifulSoup(response.text, 'html.parser')
@@ -42,6 +40,10 @@ def get_links_notices_site(site):
 def get_links_notices_search(site, name_celebrity):
   _queries = site['queries']
   _url = site['url_search']
+
+  # if url for particular search is not defined
+  if not _url:
+    return None
   
   name_celebrity = name_celebrity.replace(' ', '+')
   _url = _url.replace('$search-name$', name_celebrity)
@@ -49,11 +51,9 @@ def get_links_notices_search(site, name_celebrity):
   try:
     response = requests.get(_url)
   except Exception as e:
-    #print('Error: ', e)
     return None
 
   if response.status_code != 200:
-    #print('Status code: ', response.status_code)
     return None
 
   soup = bs4.BeautifulSoup(response.text, 'html.parser')
@@ -80,7 +80,6 @@ def validate_link(site, link):
 '''
 def scrape_article_from_link(site, url_link, name_celebrity = ''):
   _queries = site['queries']
-  #print(f'DEBUG: LINK TO SCRAPE: {url_link}')
 
   if url_link.find('/videos/') != -1:
     return False
