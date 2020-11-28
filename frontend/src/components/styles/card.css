@@ -1,0 +1,41 @@
+
+h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.card {
+    width: 100%;
+    margin: auto;
+    margin-top: 50px;
+    border: 1px gray solid;
+    border-radius: 10px;
+    padding: 1rem;
+    margin-top: 20px;
+}
+
+.card__info p {
+    font-size: 14px;
+}
+
+.card__info-icon {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.card__info-icon p {
+    font-size: 13px;
+    color: #AFB0C0;
+}
+
+.card__info-icon figure img {
+    padding: 5px;
+    width: 30%;
+}
+
+.card__info-source {
+    font-size: 14px !important;
+    color: #0C5991;
+    margin-top: 10px;
+}

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @import 'colors';
 @import 'fonts';
 @import 'sizes';
@@ -11,3 +12,65 @@ body {
     width: 1024px;
     margin: 0 auto;
 }
+=======
+@import 'reset';
+@import 'mixins';
+@import 'colors';
+@import 'fonts';
+@import 'sizes';
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+  }
+
+html, body {
+  height: 100%;
+}
+
+#home {
+  height: 100%;
+}
+
+body {
+    font-family: $font-primary;
+    font-size: $font-size;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    width: 1280px;
+}
+
+.siguiendo,
+.tecnologia,
+.entretenimiento,
+.deporte,
+.geopolitica {
+  display: flex;
+  height: 90vh;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+}
+
+.perfil {
+    display: flex;
+    height: 90vh;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+  }
+  
+  .inicio {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      margin: auto;
+      width: 100vh;
+  }
+>>>>>>> 4d687fc07faef7c591c8501ac5bf844bacfebf6e

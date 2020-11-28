@@ -1,0 +1,29 @@
+.reg {
+    
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    input[type=text] {
+        padding: 0 0.2rem;
+    }
+
+    &__fullName {
+        display: flex;
+    }
+
+    &__password {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__email {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.form-group {
+    padding: 1rem 0.5rem;
+}

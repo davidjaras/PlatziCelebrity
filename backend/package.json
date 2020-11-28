@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "name": "backend",
   "version": "1.0.0",
@@ -17,3 +18,25 @@
     "pg-promise": "^10.7.3"
   }
 }
+=======
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.6",
+    "pg-promise": "^10.7.3"
+  }
+}
+>>>>>>> 4d687fc07faef7c591c8501ac5bf844bacfebf6e
