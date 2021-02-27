@@ -1,3 +1,60 @@
+<<<<<<< HEAD
+const {db} = require('../store/database');
+
+//register user
+async function postUser (values){
+    try {
+    await db.result(`INSERT INTO users (first_name, last_name, email, password_, level_id) 
+    VALUES($1,$2, $3, $4, 2)`,
+    [
+        values.first_name,
+        values.last_name,
+        values.email,
+        values.password,
+    ])
+    const id= await db.any('SELECT id FROM users WHERE email = $1', values.email);
+    //console.log(id[0].id); solucion para acceder a variables que estan en array y dentro objetos
+    return {
+        id: `${id[0].id}`,
+        message: `Registered user`,
+    };
+    }catch{
+        return 'we have a user regitered with this email, please insert new email';
+    }
+}
+
+//register categories
+async function postCategory(values){
+    try{
+        const userId = await db.one('SELECT MAX(id) FROM users')
+    if(values.entretainment == true){
+        await db.result(`INSERT INTO users_categories (user_id, categories_id)
+        VALUES ($1, $2)`, [userId.max, 1 ]);
+    };
+    if(values.sport == true){
+        await db.result(`INSERT INTO users_categories (user_id, categories_id)
+        VALUES ($1, $2)`, [userId.max, 2]);
+    };
+    if(values.geopolitic == true){
+        await db.result(`INSERT INTO users_categories (user_id, categories_id)
+        VALUES ($1, $2)`, [userId.max, 3]);
+    };
+    if(values.tech == true){
+        await db.result(`INSERT INTO users_categories (user_id, categories_id)
+        VALUES ($1, $2)`, [userId.max, 4]);
+    };
+    return {
+        message: `Registered categories!`,
+    }
+    }catch(error){
+        return error;
+    }
+}
+module.exports = {
+    postUser,
+    postCategory,
+}
+=======
 const {db} = require('../store/database');
 
 //register user
@@ -55,3 +112,4 @@ module.exports = {
     postUser,
     postCategory,
 }
+>>>>>>> 4d687fc07faef7c591c8501ac5bf844bacfebf6e

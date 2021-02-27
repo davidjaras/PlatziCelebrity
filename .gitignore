@@ -1,0 +1,15 @@
+venv/
+.ipynb_checkpoints/
+__pycache__
+datasets_celebrities
+Code Testing.ipynb
+datasets processing.ipynb
+test_args.py
+data/node_modules
+data/index.js
+data/package.json
+data/package-lock.json
+Get new celebrities dataset.ipynb
+Data/dataset/OLD_celebrities_names_repositories.py
+common.py
+config.yaml

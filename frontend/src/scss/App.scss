@@ -1,3 +1,18 @@
+<<<<<<< HEAD
+@import 'colors';
+@import 'fonts';
+@import 'sizes';
+
+body {
+    font-family: $font-primary;
+    font-size: $font-size;
+}
+
+.container {
+    width: 1024px;
+    margin: 0 auto;
+}
+=======
 @import 'reset';
 @import 'mixins';
 @import 'colors';
@@ -58,3 +73,4 @@ body {
       margin: auto;
       width: 100vh;
   }
+>>>>>>> 4d687fc07faef7c591c8501ac5bf844bacfebf6e
